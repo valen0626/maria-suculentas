@@ -1,0 +1,115 @@
+body{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    font-family: Arial;
+    width: 90%;
+    margin: 0px;
+    padding: 10px;
+    background-size: cover;
+    position: absolute;
+    background-color: transparent !important;
+}
+
+nav{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+nav ul{
+    list-style-type: none;
+    text-align: center;
+}
+nav li{
+    display: inline-block;
+    margin: 30px;
+}
+
+nav input{
+    display: inline-block;
+    background-color: #c99a99;
+    border: transparent;
+    margin: 10px;
+    border-radius: 5px;
+    width: 110px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+nav input:hover{
+    background-color: white;
+    color: #c99a99;
+    border: 1px;
+    border-color: #c99a99;
+}
+
+
+
+.linkDesplegable{
+    text-decoration: none;
+    color: black;
+}
+
+.imagenHeader{
+    width: 100%;
+    height: 950px;
+}
+
+.links{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.imagen h1{
+    position: absolute;
+    top: 400px;
+    left: 250px;
+    margin: 10px;
+    font-size: 70px;
+    font-family: serif;
+}
+.imagen p{
+    position: absolute;
+    top: 500px;
+    left: 250px;
+    margin: 10px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(86, 86, 86);
+}
+
+.registrate-login{
+    background-image: url('/public/suculentas-sobre-fondo-blanco_916191-12859.jpg') ;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registrate-login form{
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    color: #c99a99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.imagenLogin{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
