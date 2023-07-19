@@ -10,21 +10,11 @@ const Header = () => {
               Maria suculentas
             </Link>
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item">
             <Link
-              className="links nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
+              className="links" to={'/productos'}>
               Productos
             </Link>
-            <ul className="dropdown-menu">
-              <li className="dropdown-item">
-                <Link className="linkDesplegable" to={"/productos"}>Planta</Link>
-              </li>
-              <li className="dropdown-item">
-                <Link className="linkDesplegable" to={"/productos"}>Aceites esenciales</Link>
-              </li>
-            </ul>
           </li>
           <li className="nav-item">
             <Link className="links" to={"/quienesSomos"}>

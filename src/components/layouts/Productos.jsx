@@ -4,15 +4,40 @@ const Productos = () => {
   return (
     <section>
         <Header/>
-        <section className="imagen">
-        <img src="/public/suculentas-sobre-fondo-blanco_916191-12859.avif" alt="imagen de suculentas" className="imagenHeader"/>
-        <h1>Suculentas que alegran y sanan</h1>
-        <p>Te ofrecemos la mejor selección de plantas suculentas</p>
-        
+        <section className="headerProductos">
         </section>
         
-        <section>
-            <h1>Maria suculentas</h1>
+        <section className="listaProductos">
+            <section className="producto">
+              <img src="/planta.jpg" alt="" />
+              <h4>Cactus</h4>
+              <input type="button" value="Ver" />
+              <input type="button" value="Comprar" />
+            </section>
+            <section className="producto">
+              <img src="/planta.jpg" alt="" />
+              <h4>Cactus</h4>
+              <input type="button" value="Ver" />
+              <input type="button" value="Comprar" />
+            </section>
+            <section className="producto">
+              <img src="/planta.jpg" alt="" />
+              <h4>Cactus</h4>
+              <input type="button" value="Ver" />
+              <input type="button" value="Comprar" />
+            </section>
+            <section className="producto">
+              <img src="/planta.jpg" alt="" />
+              <h4>Cactus</h4>
+              <input type="button" value="Ver" />
+              <input type="button" value="Comprar" />
+            </section>
+            <section className="producto">
+              <img src="/planta.jpg" alt="" />
+              <h4>Cactus</h4>
+              <input type="button" value="Ver" />
+              <input type="button" value="Comprar" />
+            </section>
         </section>
     </section>
   )
