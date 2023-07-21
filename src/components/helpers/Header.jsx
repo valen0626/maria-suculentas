@@ -7,7 +7,7 @@ const Header = () => {
         <ul>
           <li className="nav-item">
             <Link className="links" to={"/"}>
-              Maria suculentas
+             
             </Link>
           </li>
           <li className="nav-item">
