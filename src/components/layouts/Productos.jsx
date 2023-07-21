@@ -1,7 +1,22 @@
 import { Link } from "react-router-dom"
 import Header from "../helpers/Header"
+import { dataBase } from "./config/backConfig"
+import {getDocs, collection} from 'firebase/firestore'
+import { useEffect, useState } from "react"
 
 const Productos = () => {
+  const [listaProductos, setListaProductos] = useState([])
+    const mostrarLista = async()=>{
+        const productosCollection = collection(dataBase, 'productos')
+        const data = await getDocs(productosCollection)
+        setListaProductos(data.docs.map((doc)=>({...doc.data()})))
+        console.log(data.docs.map((doc)=>({...doc.data()})));
+    }
+    useEffect(()=>{
+      mostrarLista()
+    }, [])
+
+  
   return (
     <section>
       <Header />
@@ -16,6 +31,17 @@ const Productos = () => {
           <Link>Aceites esenciales</Link>
         </section>
         <section className="listaProductos">
+          {
+            listaProductos.map((productoItem) => (
+                <section key={productoItem.nombre} className="producto">
+                  <img src={productoItem.imagen} alt={productoItem.nombre} />
+                  <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">{productoItem.nombre}</a>
+                  <h5>{productoItem.precio}</h5>
+                  <input type="button" value="Comprar" />
+                </section>
+              )
+            )
+          }
           <section className="producto">
             <img src="/Echeveria-colorata.jpg" alt="" />
             <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">Echeveria colorata</a>
