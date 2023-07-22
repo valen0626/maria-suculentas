@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Header from "../../helpers/Header"
-import { dataBase } from "./config/backConfig"
+import { dataBase } from "../config/backConfig"
 import {getDocs, collection} from 'firebase/firestore'
 import { useEffect, useState } from "react"
 

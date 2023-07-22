@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
+      <img src="/logo.jpeg" alt="logo" className="logo"/>
       <nav>
         <ul>
           <li className="nav-item">
             <Link className="links" to={"/"}>
-             
+            
             </Link>
           </li>
           <li className="nav-item">
