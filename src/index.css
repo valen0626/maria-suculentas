@@ -1,4 +1,4 @@
-body  {
+body {
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -29,10 +29,12 @@ nav ul {
 }
 
 nav .nav-item {
+    
     display: inline-block;
     margin-left: 30px;
     margin-right: 30px;
-    margin-top: 30px;
+    margin-top: 150px;
+    left: 100px;
     height: 100px;
 }
 
@@ -59,24 +61,28 @@ nav ul ul {
     background-color: #464946;
     justify-content: space-around;
     flex-direction: column;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
 }
 
-nav ul ul .listaProd{
-    margin:5px;
+nav ul ul .listaProd {
+    margin: 5px;
     text-align: left;
 }
-nav ul ul .linkCategoria{
+
+nav ul ul .linkCategoria {
     text-decoration: none;
     color: rgb(189, 189, 189);
 }
-nav ul ul .linkCategoria:hover{
+
+nav ul ul .linkCategoria:hover {
     color: white;
 }
-nav ul li:hover > ul {
-    display:flex;
-   }
+
+nav ul li:hover>ul {
+    display: flex;
+}
+
 nav input:hover {
     background-color: white;
     color: #c99a99;
@@ -84,23 +90,24 @@ nav input:hover {
     border-color: #c99a99;
 }
 
-.linkDesplegable{
+.linkDesplegable {
     text-decoration: none;
     color: rgb(2, 29, 11);
 }
 
-.imagenHeader  {
+.imagenHeader {
     width: 100%;
     height: 950px;
 }
 
 .links {
+
     text-decoration: none;
     color: rgb(4, 100, 11);
-    font-size: 18px;
+    font-size: 20px;
 }
 
-.imagen h1{
+.imagen h1 {
     position: absolute;
     background-color: rgba(8, 108, 66, 0.317);
     box-shadow: 20px 10px 10px rgba(6, 80, 6, 0.374);
@@ -170,7 +177,7 @@ nav input:hover {
     height: 330px;
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
     margin: 15px;
@@ -178,13 +185,13 @@ nav input:hover {
     border-radius: 5px;
 }
 
-.producto img{
+.producto img {
     width: 210px;
     height: 170px;
     margin-top: 0px;
 }
 
-.producto input{
+.producto input {
     background-color: transparent;
     border: none;
     display: flex;
@@ -196,21 +203,23 @@ nav input:hover {
     font-size: 20px;
     text-align: center;
 }
-.producto input:hover{
+
+.producto input:hover {
     color: black;
 }
 
-.producto .link{
+.producto .link {
     font-size: 20px;
     text-decoration: none;
     color: black;
     cursor: pointer;
 }
-.producto .link:hover{
+
+.producto .link:hover {
     color: #d69897;
 }
 
-.categorias{
+.categorias {
     width: 25%;
     height: 75vh;
     margin: 30px;
@@ -221,75 +230,83 @@ nav input:hover {
     font-family: serif;
     background-color: rgb(238, 236, 236);
 }
-.categorias h1{
+
+.categorias h1 {
     font-size: 30px;
 }
-.categorias .linkCategoria{
+
+.categorias .linkCategoria {
     font-size: 15px;
     text-decoration: none;
     color: #5a5a5a;
 }
-.seccionProd{
+
+.seccionProd {
     display: flex;
     padding: 15px;
     justify-content: center;
 }
 
-.modal-body{
+.modal-body {
     padding: 20px;
     display: flex;
     justify-content: center;
 }
 
-.modal-body img{
+.modal-body img {
     width: 400px;
     height: 400px;
 }
 
-.modal-body section{
+.modal-body section {
     margin-left: 15px;
 }
 
-.producto .cantidad{
+.producto .cantidad {
     border: 1px solid;
     border-color: black;
 }
 
-.logo{
+.logo {
     position: absolute;
+    left: 40px;
     width: 200px;
     border-radius: 100%;
 }
 
 /*CONTACTO*/
-*{
+* {
     text-decoration: none;
     list-style-type: none;
 }
-.seccion{
-    
+
+.seccion {
+
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-.seccion::before{
+
+.seccion::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 50%;
     height: 100%;
-    
+
 }
-.container_contactos{
+
+.container_contactos {
     position: relative;
     min-width: 1100px;
     min-height: 550px;
     display: flex;
     z-index: 1000;
 }
-.container_contactos .contactForm{
+
+.container_contactos .contactForm {
     position: absolute;
     padding: 70px 40px;
     margin-left: 65px;
@@ -298,32 +315,36 @@ nav input:hover {
     background: #f7f7f7;
     box-shadow: 0 50px 50px 0;
 }
-.container_contactos .contactForm h2{
+
+.container_contactos .contactForm h2 {
     color: rgba(0, 0, 0, 0.903);
     font-size: 23px;
     font-weight: 500;
 }
-.container_contactos .contactForm  .formularioBox{
+
+.container_contactos .contactForm .formularioBox {
     position: relative;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding-top: 30px;
 }
-.container_contactos .contactForm  .formularioBox .inputBox{
+
+.container_contactos .contactForm .formularioBox .inputBox {
     position: relative;
     margin-bottom: 35px;
 }
-.container_contactos .contactForm  .formularioBox .inputBox.w50{
+
+.container_contactos .contactForm .formularioBox .inputBox.w50 {
     width: 47%;
 }
 
-.container_contactos .contactForm  .formularioBox .inputBox.w100{
+.container_contactos .contactForm .formularioBox .inputBox.w100 {
     width: 100%;
 }
 
-.container_contactos .contactForm  .formularioBox .inputBox input,
-.container_contactos .contactForm  .formularioBox .inputBox textarea{
+.container_contactos .contactForm .formularioBox .inputBox input,
+.container_contactos .contactForm .formularioBox .inputBox textarea {
     width: 100%;
     resize: none;
     padding: 5px 0;
@@ -334,23 +355,25 @@ nav input:hover {
     outline: none;
     border-bottom: 1px solid #777;
 }
-.container_contactos .contactForm  .formularioBox .inputBox textarea{
+
+.container_contactos .contactForm .formularioBox .inputBox textarea {
     height: 120px;
 }
 
-.container_contactos .contactForm  .formularioBox .inputBox  span {
+.container_contactos .contactForm .formularioBox .inputBox span {
     position: absolute;
     left: 0;
-    padding: 5px  0;
+    padding: 5px 0;
     pointer-events: none;
     font-size: 18px;
     font-weight: 300;
     transition: 0.3s;
 }
-.container_contactos .contactForm  .formularioBox .inputBox input:focus ~ span,
-.container_contactos .contactForm  .formularioBox .inputBox input:valid ~ span,
-.container_contactos .contactForm  .formularioBox .inputBox textarea:focus ~ span,
-.container_contactos .contactForm  .formularioBox .inputBox textarea:valid ~ span {
+
+.container_contactos .contactForm .formularioBox .inputBox input:focus~span,
+.container_contactos .contactForm .formularioBox .inputBox input:valid~span,
+.container_contactos .contactForm .formularioBox .inputBox textarea:focus~span,
+.container_contactos .contactForm .formularioBox .inputBox textarea:valid~span {
     transform: translateY(-20px);
     font-size: 12px;
     font-weight: 400;
@@ -358,83 +381,91 @@ nav input:hover {
     color: purple;
     font-weight: 500;
 }
-.container_contactos .contactForm  .formularioBox .inputBox input[type="submit"]{
+
+.container_contactos .contactForm .formularioBox .inputBox input[type="submit"] {
     position: relative;
-    cursor: pointer; 
+    cursor: pointer;
     background: rgba(0, 0, 0, 0.871);
     color: #f7f7f7;
     max-width: 150px;
     padding: 12px;
 }
-.container_contactos .contactForm  .formularioBox .inputBox input[type="submit"]:hover{
-   background:  rgba(0, 0, 0, 0.795);
+
+.container_contactos .contactForm .formularioBox .inputBox input[type="submit"]:hover {
+    background: rgba(0, 0, 0, 0.795);
 }
 
-@media(max-width:1120px){
-    .container_contactos{
+@media(max-width:1120px) {
+    .container_contactos {
         padding-left: -6%;
         min-width: 800px;
         min-height: 550px;
-       
+
     }
-    .container_contactos .contactForm{
+
+    .container_contactos .contactForm {
         position: absolute;
         padding: 70px 50px;
         padding-left: 40px;
         margin-top: 8%;
         background: #f7f7f7;
-        
+
     }
 }
 
-@media(max-width:991px){
-    .container_contactos{
+@media(max-width:991px) {
+    .container_contactos {
         margin-top: 10%;
         min-width: 460px;
         min-height: 590px;
-       
+
     }
-    .container_contactos .contactForm{
+
+    .container_contactos .contactForm {
         position: absolute;
         padding: 70px 50px;
         padding-left: 40px;
         margin-top: 8%;
         background: #f7f7f7;
-        
+
     }
-    .container_contactos .contactForm  .formularioBox .inputBox input:focus ~ span,
-.container_contactos .contactForm  .formularioBox .inputBox input:valid ~ span,
-.container_contactos .contactForm  .formularioBox .inputBox textarea:focus ~ span,
-.container_contactos .contactForm  .formularioBox .inputBox textarea:valid ~ span {
-    transform: translateY(-25px);
-    font-size: 13px;
-    font-weight: 200;
-    letter-spacing: 1px;
-    color: purple;
-    font-weight: 300;
-}
-.container_contactos .contactForm  .formularioBox .inputBox input,
-.container_contactos .contactForm  .formularioBox .inputBox textarea{
-    
-    font-size: 18px;
-    font-weight: 300;
-}
-.container_contactos .contactForm  .formularioBox .inputBox input[type="submit"]{
-    position: relative;
-    cursor: pointer; 
-    background: rgba(0, 0, 0, 0.871);
-    color: #f7f7f7;
-    max-width: 150px;
-    padding: 12px;
-    margin:  0 0 0 33px;
-}
-.contactInfo .sci{
-    padding-top: 5px;
-}
+
+    .container_contactos .contactForm .formularioBox .inputBox input:focus~span,
+    .container_contactos .contactForm .formularioBox .inputBox input:valid~span,
+    .container_contactos .contactForm .formularioBox .inputBox textarea:focus~span,
+    .container_contactos .contactForm .formularioBox .inputBox textarea:valid~span {
+        transform: translateY(-25px);
+        font-size: 13px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        color: purple;
+        font-weight: 300;
+    }
+
+    .container_contactos .contactForm .formularioBox .inputBox input,
+    .container_contactos .contactForm .formularioBox .inputBox textarea {
+
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .container_contactos .contactForm .formularioBox .inputBox input[type="submit"] {
+        position: relative;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.871);
+        color: #f7f7f7;
+        max-width: 150px;
+        padding: 12px;
+        margin: 0 0 0 33px;
+    }
+
+    .contactInfo .sci {
+        padding-top: 5px;
+    }
 
 }
 
-.contactInfo .sci{
+.contactInfo .sci {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -442,14 +473,39 @@ nav input:hover {
     padding-top: -5px;
     font-size: 28px;
 }
-.contactInfo .sci li{
-    margin:  -19px 20px 0 8px;
-    
-}
-.contactInfo .sci li ion-icon{
-    color:#333;
-}
-.contactInfo .sci li ion-icon:hover{
-    color:#0a0a0a;
 
+.contactInfo .sci li {
+    margin: -19px 20px 0 8px;
+
+}
+
+.contactInfo .sci li ion-icon {
+    color: #333;
+}
+
+.contactInfo .sci li ion-icon:hover {
+    color: #0a0a0a;
+
+}
+.carrusel{
+    position: absolute;
+    left: 350px;
+    top: 500px;
+    width: 50%;
+}
+.titulomaria{
+    position: absolute;
+    left: 80px;
+    top: 250px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(5, 63, 5)
+}
+.parrafosomos{
+    position: absolute;
+    left: 80px;
+    padding: 10px;
+    top: 350px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    text-align: justify;
 }
