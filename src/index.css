@@ -260,3 +260,196 @@ nav input:hover {
     width: 200px;
     border-radius: 100%;
 }
+
+/*CONTACTO*/
+*{
+    text-decoration: none;
+    list-style-type: none;
+}
+.seccion{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.seccion::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    
+}
+.container_contactos{
+    position: relative;
+    min-width: 1100px;
+    min-height: 550px;
+    display: flex;
+    z-index: 1000;
+}
+.container_contactos .contactForm{
+    position: absolute;
+    padding: 70px 40px;
+    margin-left: 65px;
+    width: calc(100% - 150px);
+    height: 100%;
+    background: #f7f7f7;
+    box-shadow: 0 50px 50px 0;
+}
+.container_contactos .contactForm h2{
+    color: rgba(0, 0, 0, 0.903);
+    font-size: 23px;
+    font-weight: 500;
+}
+.container_contactos .contactForm  .formularioBox{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+.container_contactos .contactForm  .formularioBox .inputBox{
+    position: relative;
+    margin-bottom: 35px;
+}
+.container_contactos .contactForm  .formularioBox .inputBox.w50{
+    width: 47%;
+}
+
+.container_contactos .contactForm  .formularioBox .inputBox.w100{
+    width: 100%;
+}
+
+.container_contactos .contactForm  .formularioBox .inputBox input,
+.container_contactos .contactForm  .formularioBox .inputBox textarea{
+    width: 100%;
+    resize: none;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #777;
+}
+.container_contactos .contactForm  .formularioBox .inputBox textarea{
+    height: 120px;
+}
+
+.container_contactos .contactForm  .formularioBox .inputBox  span {
+    position: absolute;
+    left: 0;
+    padding: 5px  0;
+    pointer-events: none;
+    font-size: 18px;
+    font-weight: 300;
+    transition: 0.3s;
+}
+.container_contactos .contactForm  .formularioBox .inputBox input:focus ~ span,
+.container_contactos .contactForm  .formularioBox .inputBox input:valid ~ span,
+.container_contactos .contactForm  .formularioBox .inputBox textarea:focus ~ span,
+.container_contactos .contactForm  .formularioBox .inputBox textarea:valid ~ span {
+    transform: translateY(-20px);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: purple;
+    font-weight: 500;
+}
+.container_contactos .contactForm  .formularioBox .inputBox input[type="submit"]{
+    position: relative;
+    cursor: pointer; 
+    background: rgba(0, 0, 0, 0.871);
+    color: #f7f7f7;
+    max-width: 150px;
+    padding: 12px;
+}
+.container_contactos .contactForm  .formularioBox .inputBox input[type="submit"]:hover{
+   background:  rgba(0, 0, 0, 0.795);
+}
+
+@media(max-width:1120px){
+    .container_contactos{
+        padding-left: -6%;
+        min-width: 800px;
+        min-height: 550px;
+       
+    }
+    .container_contactos .contactForm{
+        position: absolute;
+        padding: 70px 50px;
+        padding-left: 40px;
+        margin-top: 8%;
+        background: #f7f7f7;
+        
+    }
+}
+
+@media(max-width:991px){
+    .container_contactos{
+        margin-top: 10%;
+        min-width: 460px;
+        min-height: 590px;
+       
+    }
+    .container_contactos .contactForm{
+        position: absolute;
+        padding: 70px 50px;
+        padding-left: 40px;
+        margin-top: 8%;
+        background: #f7f7f7;
+        
+    }
+    .container_contactos .contactForm  .formularioBox .inputBox input:focus ~ span,
+.container_contactos .contactForm  .formularioBox .inputBox input:valid ~ span,
+.container_contactos .contactForm  .formularioBox .inputBox textarea:focus ~ span,
+.container_contactos .contactForm  .formularioBox .inputBox textarea:valid ~ span {
+    transform: translateY(-25px);
+    font-size: 13px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: purple;
+    font-weight: 300;
+}
+.container_contactos .contactForm  .formularioBox .inputBox input,
+.container_contactos .contactForm  .formularioBox .inputBox textarea{
+    
+    font-size: 18px;
+    font-weight: 300;
+}
+.container_contactos .contactForm  .formularioBox .inputBox input[type="submit"]{
+    position: relative;
+    cursor: pointer; 
+    background: rgba(0, 0, 0, 0.871);
+    color: #f7f7f7;
+    max-width: 150px;
+    padding: 12px;
+    margin:  0 0 0 33px;
+}
+.contactInfo .sci{
+    padding-top: 5px;
+}
+
+}
+
+.contactInfo .sci{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: -5px;
+    font-size: 28px;
+}
+.contactInfo .sci li{
+    margin:  -19px 20px 0 8px;
+    
+}
+.contactInfo .sci li ion-icon{
+    color:#333;
+}
+.contactInfo .sci li ion-icon:hover{
+    color:#0a0a0a;
+
+}

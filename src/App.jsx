@@ -4,6 +4,7 @@ import Productos from "./components/layouts/productos/Productos";
 import Login from "./components/layouts/Login";
 import Registrate from "./components/layouts/Registrate";
 import Echeveria from "./components/layouts/productos/Echeveria";
+import Contacto from "./components/layouts/Contacto";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path:'/echeveria',
     element: <Echeveria/>
+  },
+  {
+  path: '/contacto',
+  element: <Contacto />
   }
 ]);
 
