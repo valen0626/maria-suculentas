@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Header from "../helpers/Header"
+import Header from "../../helpers/Header"
 
 const Productos = () => {
   return (
@@ -10,10 +10,15 @@ const Productos = () => {
 
       <section className="seccionProd">
         <section className="categorias">
+          <h1>Buscar</h1>
+          <input type="search" placeholder="Buscar" name="Buscar" id="" />
           <h1>Categorias</h1>
-          <Link>Macetas</Link>
-          <Link>Jabones</Link>
-          <Link>Aceites esenciales</Link>
+          <Link className="linkCategoria">AGAVES</Link>
+          <Link className="linkCategoria">ALOE</Link>
+          <Link to={'/echeveria'} className="linkCategoria">ECHEVERIA</Link>
+          <Link className="linkCategoria">CACTUS</Link>
+          <Link className="linkCategoria">OTRAS SUCULENTAS</Link>
+          <Link className="linkCategoria">ACEITES ESENCIALES</Link>
         </section>
         <section className="listaProductos">
           <section className="producto">

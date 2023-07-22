@@ -15,6 +15,12 @@ const Header = () => {
               className="links" to={'/productos'}>
               Productos
             </Link>
+            <ul>
+              <li className="listaProd"><Link className="linkCategoria">AGAVES</Link></li>
+              <li className="listaProd"><Link className="linkCategoria">ALOE</Link></li>
+              <li className="listaProd"><Link to={'/echeveria'} className="linkCategoria">ECHEVERIA</Link></li>
+              <li className="listaProd"><Link className="linkCategoria">OTRAS SUCULENTAS</Link></li>
+            </ul>
           </li>
           <li className="nav-item">
             <Link className="links" to={"/quienesSomos"}>
@@ -50,7 +56,7 @@ const Header = () => {
           </svg>
         </Link>
         <Link className="btn " to={'/login'}>Iniciar sesion / Registrarse</Link>
-        
+
       </nav>
     </header>
   );

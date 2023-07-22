@@ -1,8 +1,9 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./components/layouts/Home";
-import Productos from "./components/layouts/Productos";
+import Productos from "./components/layouts/productos/Productos";
 import Login from "./components/layouts/Login";
 import Registrate from "./components/layouts/Registrate";
+import Echeveria from "./components/layouts/productos/Echeveria";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/registrate',
     element: <Registrate/>
+  },
+  {
+    path:'/echeveria',
+    element: <Echeveria/>
   }
 ]);
 
