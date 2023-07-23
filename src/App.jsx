@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path:'/echeveria',
-    element: <Echeveria/>
+    element: <Productos/>
   },
   {
   path: '/contacto',
