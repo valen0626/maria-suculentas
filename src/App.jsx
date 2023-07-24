@@ -3,11 +3,9 @@ import Home from "./components/layouts/Home";
 import Productos from "./components/layouts/productos/Productos";
 import Login from "./components/layouts/Login";
 import Registrate from "./components/layouts/Registrate";
-import Echeveria from "./components/layouts/productos/Echeveria";
 import Contacto from "./components/layouts/Contacto";
 import Quienesomos from "./components/layouts/Quienesomos";
-import CarroCompras from './components/layouts/carro/CarroCompras'
-import CarroProvider from "./components/layouts/carro/CarroContext";
+import VistaCarro from "./components/layouts/carro/VistaCarro";
 
 const router = createBrowserRouter([
   {
@@ -40,16 +38,14 @@ const router = createBrowserRouter([
   },
   {
     path: '/carrocompras',
-    element: <CarroCompras/>
+    element: <VistaCarro/>
   }
 ]);
 
 function App() {
   return (
     <>
-    <CarroProvider>
       <RouterProvider router={router} />
-      </CarroProvider>
     </>
   );
 }

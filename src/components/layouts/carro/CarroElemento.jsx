@@ -1,22 +1,21 @@
 import Header from "../../helpers/Header"
-import { listaCarro, setListaCarro } from "./CarroContext"
 
-const CarroCompras = () => {
+const CarroElemento = ({ carroItems, total }) => {
+    
   return (
     <section>
-        <Header/>
         <section className="headerCarro"></section>
-        <section className="vistaCarrito">
-        {
-            listaCarro.map((productoItem)=>(
-                <section key={productoItem.nombre} className="producto">
-                  <img src={productoItem.imagen} alt={productoItem.nombre} />
-                  <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">{productoItem.nombre}</a>
-                  <h5>{productoItem.precio}</h5>
-                </section>
-            ))
-        }
-        <section className="listaCarro">
+        <section >
+      <h2>Carrito de compras</h2>
+      <ul>
+        {carroItems.map((item) => (
+          <li key={item.nombre}>
+            {item.nombre} - ${item.precio}
+          </li>
+        ))}
+      </ul>
+      <p>Total: ${total}</p>
+        {/* <section className="listaCarro">
             <table>
                 <thead>
                     <tr>
@@ -49,9 +48,10 @@ const CarroCompras = () => {
             </table>
         </section>
         </section>
-        
+         */}
+    </section>
     </section>
   )
 }
 
-export default CarroCompras
+export default CarroElemento
