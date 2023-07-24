@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import Header from "../../helpers/Header"
 import { dataBase } from "../config/backConfig"
 import {getDocs, collection} from 'firebase/firestore'
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { carroContext } from "../carro/CarroContext"
 
 const Productos = () => {
   const [listaProductos, setListaProductos] = useState([])
@@ -16,7 +17,11 @@ const Productos = () => {
       mostrarLista()
     }, [])
 
-  
+  const {listaCarro, setListaCarro} = useContext(carroContext)
+  function comprarProducto(productoItem) {
+    console.log(productoItem);
+    setListaCarro([...listaCarro, productoItem])
+  }
   return (
     <section>
       <Header />
@@ -42,7 +47,7 @@ const Productos = () => {
                   <img src={productoItem.imagen} alt={productoItem.nombre} />
                   <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">{productoItem.nombre}</a>
                   <h5>{productoItem.precio}</h5>
-                  <input type="button" value="Comprar" />
+                  <input type="button" value="Comprar" onClick={()=>comprarProducto(productoItem)}/>
                 </section>
               )
             )
