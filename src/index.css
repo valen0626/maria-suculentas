@@ -30,7 +30,7 @@ nav ul {
 }
 
 nav .nav-item {
-    
+
     display: inline-block;
     margin-left: 30px;
     margin-right: 30px;
@@ -111,10 +111,11 @@ nav input:hover {
 .imagen h1 {
     position: absolute;
     background-color: rgba(8, 108, 66, 0.317);
+    color: rgb(4, 50, 4);
     box-shadow: 20px 10px 10px rgba(6, 80, 6, 0.374);
     padding: 10px;
     border-radius: 20px 10px 4px;
-    top: 320px;
+    top: 260px;
     left: 100px;
     margin: 10px;
     font-size: 60px;
@@ -123,7 +124,7 @@ nav input:hover {
 
 .imagen p {
     position: absolute;
-    top: 420px;
+    top: 360px;
     left: 100px;
     margin: 10px;
     font-size: 28px;
@@ -271,7 +272,7 @@ nav input:hover {
 .logo {
     position: absolute;
     left: 40px;
-    width: 200px;
+    width: 180px;
     border-radius: 100%;
 }
 
@@ -282,7 +283,8 @@ nav input:hover {
 }
 
 .seccion {
-
+    
+    left: 220PX;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -379,7 +381,7 @@ nav input:hover {
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 1px;
-    color: purple;
+    color: rgb(3, 65, 39);
     font-weight: 500;
 }
 
@@ -488,61 +490,98 @@ nav input:hover {
     color: #0a0a0a;
 
 }
-.carrusel{
+
+.carrusel {
     position: absolute;
-    left: 350px;
-    top: 500px;
-    width: 50%;
+    left: 550px;
+    top: 0px;
+    width: 150%;
 }
-.titulomaria{
+
+.titulomaria {
     position: absolute;
     left: 80px;
     top: 250px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(5, 63, 5)
 }
-.parrafosomos{
+
+.parrafosomos {
     position: absolute;
     left: 80px;
     padding: 10px;
     top: 350px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
     text-align: justify;
 }
 
-.headerCarro{
+.headerCarro {
     background-color: white;
     width: 100%;
     height: 100px;
 }
-.vistaCarrito{
+
+.vistaCarrito {
     padding: 30px;
     display: flex;
     justify-content: center;
 }
-.listaCarro table{
+
+.listaCarro table {
     width: 800px;
-    
+
 }
-.listaCarro thead{
+
+.listaCarro thead {
     height: 40px;
     color: white;
     background-color: #d69897;
 }
-.listaCarro thead th{
+
+.listaCarro thead th {
     padding: 5px;
-    border-right:5px#f7f7f7;
+    border-right: 5px#f7f7f7;
 
 }
-.listaCarro tbody{
+
+.listaCarro tbody {
     background-color: #f7f7f7;
 }
-.listaCarro tbody tr{
+
+.listaCarro tbody tr {
     height: 70px;
 } 
 
 tr img{
     width: 100px;
     
+}
+
+
+.parrafos {
+    position: absolute;
+    top: 300px;
+    left: 120px;
+    display: inline-block;
+    background-color: rgba(8, 108, 66, 0.317);
+    box-shadow: 20px 10px 10px rgba(6, 80, 6, 0.374);
+    width: 500px;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: justify;
+    padding: 10px;
+}
+
+.parrafosh1 {
+    color: rgb(4, 58, 18);
+    text-align: center;
+}
+
+.react-player {
+    position: absolute;
+    top: 500px;
+    left: 200px;
+    width: 50%;
+    height: 50%;
 }

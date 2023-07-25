@@ -1,8 +1,10 @@
+import Header from "../helpers/Header";
 
 const Contacto = () => {
     return (
         <>
          <section className="seccion">
+          
             <section className="container_contactos">
                 
                 <article className="contactForm">
