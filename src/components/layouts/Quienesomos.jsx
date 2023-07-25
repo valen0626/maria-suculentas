@@ -2,6 +2,8 @@ import React from 'react'
 import Carrusel from '../helpers/Carrusel'
 import Header from '../helpers/Header'
 
+
+
 const Quienesomos = () => {
     return (
         <section>
@@ -13,7 +15,6 @@ const Quienesomos = () => {
                 <p>Nuestros aceites esenciales los obtenemos por arrastre de vapor. Hacemos pasar una corriente de vapor de agua a través de la planta a procesar, previamente introducida en el vaso destilador de un alambique de acero inoxidable, lo que volatiliza y arrastra las moléculas aromáticas de ésta.</p>
                 <Carrusel />
             </section>
-
 
         </section>
     )

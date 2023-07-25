@@ -2,7 +2,10 @@ import Header from "../helpers/Header";
 
 const Contacto = () => {
     return (
-        <>
+        
+    <section>
+      <Header />
+      <section className="headerProductos"></section>
          <section className="seccion">
           
             <section className="container_contactos">
@@ -47,7 +50,8 @@ const Contacto = () => {
                 </article>
             </section>
          </section>
-        </>
+         </section>
+   
     )
 }
 
