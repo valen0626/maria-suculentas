@@ -541,3 +541,8 @@ nav input:hover {
 .listaCarro tbody tr{
     height: 70px;
 } 
+
+tr img{
+    width: 100px;
+    
+}

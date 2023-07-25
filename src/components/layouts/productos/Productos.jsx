@@ -1,30 +1,23 @@
 import { Link } from "react-router-dom"
 import Header from "../../helpers/Header"
 import { dataBase } from "../config/backConfig"
-import {getDocs, collection} from 'firebase/firestore'
-import { useEffect, useState } from "react"
+import { getDocs, collection } from 'firebase/firestore'
+import { useContext, useEffect, useState } from "react"
+import { CarroContexto } from "../carro/CarroContexto"
 
 const Productos = () => {
+  const {añadirAlCarro} = useContext(CarroContexto)
+
   const [listaProductos, setListaProductos] = useState([])
-    const mostrarLista = async()=>{
-        const productosCollection = collection(dataBase, 'productos')
-        const data = await getDocs(productosCollection)
-        setListaProductos(data.docs.map((doc)=>({...doc.data()})))
-        console.log(data.docs.map((doc)=>({...doc.data()})));
-    }
-    useEffect(()=>{
-      mostrarLista()
-    }, [])
-  
-    const [carroItems, setCarroItems] = useState([]);
-    const [total, setTotal] = useState(0);
-    const añadirAlCarro = (productoItem) => {
-      const nuevoProducto = [...carroItems, productoItem];
-      const nuevoTotal = total + productoItem.precio;
-      setCarroItems(nuevoProducto);
-      setTotal(nuevoTotal);
-      return carroItems
-    };
+  const mostrarLista = async () => {
+    const productosCollection = collection(dataBase, 'productos')
+    const data = await getDocs(productosCollection)
+    setListaProductos(data.docs.map((doc) => ({ ...doc.data() })))
+    console.log(data.docs.map((doc) => ({ ...doc.data() })));
+  }
+  useEffect(() => {
+    mostrarLista()
+  }, [])
   return (
     <section>
       <Header />
@@ -43,16 +36,17 @@ const Productos = () => {
           <Link className="linkCategoria">OTRAS SUCULENTAS</Link>
           <Link className="linkCategoria">ACEITES ESENCIALES</Link>
         </section>
+        
         <section className="listaProductos">
           {
             listaProductos.map((productoItem) => (
-                <section key={productoItem.nombre} className="producto">
-                  <img src={productoItem.imagen} alt={productoItem.nombre} />
-                  <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">{productoItem.nombre}</a>
-                  <h5>{productoItem.precio}</h5>
-                  <input type="button" value="Comprar" onClick={()=>añadirAlCarro(productoItem)}/>
-                </section>
-              )
+              <section key={productoItem.nombre} className="producto">
+                <img src={productoItem.imagen} alt={productoItem.nombre} />
+                <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">{productoItem.nombre}</a>
+                <h5>{productoItem.precio}</h5>
+                <input type="button" value="Comprar" onClick={() => añadirAlCarro(productoItem)} />
+              </section>
+            )
             )
           }
           <section className="producto">
@@ -71,10 +65,10 @@ const Productos = () => {
                       <h2>Echeveria colorata 'Hibrida'</h2>
                       <h4>Descripción</h4>
                       <p>Esta planta forma parte de la Surreal Succulents Online Rare Plant Fair.
-                      Este es un híbrido único, elegido de nuestra colección para esta oportunidad única de poseer este Echeveria único.
+                        Este es un híbrido único, elegido de nuestra colección para esta oportunidad única de poseer este Echeveria único.
                       </p>
                       <h5>$15,000</h5>
-                      <input className="cantidad" type="number"/>
+                      <input className="cantidad" type="number" />
                       <input type="button" value="Comprar" />
                     </section>
                   </div>
@@ -87,11 +81,11 @@ const Productos = () => {
             <h5>$15,000</h5>
             <input type="button" value="Comprar" />
           </section>
+        </section>
       </section>
     </section>
-    </section>
   )
-  
+
 }
 
 export default Productos

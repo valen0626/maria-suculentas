@@ -6,6 +6,7 @@ import Registrate from "./components/layouts/Registrate";
 import Contacto from "./components/layouts/Contacto";
 import Quienesomos from "./components/layouts/Quienesomos";
 import VistaCarro from "./components/layouts/carro/VistaCarro";
+import { CarroProvider } from "./components/layouts/carro/CarroContexto";
 
 const router = createBrowserRouter([
   {
@@ -18,23 +19,23 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login/>
+    element: <Login />
   },
   {
     path: '/registrate',
-    element: <Registrate/>
+    element: <Registrate />
   },
   {
-    path:'/echeveria',
-    element: <Productos/>
+    path: '/echeveria',
+    element: <Productos />
   },
   {
-  path: '/contacto',
-  element: <Contacto />
+    path: '/contacto',
+    element: <Contacto />
   },
   {
     path: '/quienesSomos',
-    element: <Quienesomos/>
+    element: <Quienesomos />
   },
   {
     path: '/carrocompras',
@@ -45,7 +46,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+    <CarroProvider>
       <RouterProvider router={router} />
+    </CarroProvider>
     </>
   );
 }
