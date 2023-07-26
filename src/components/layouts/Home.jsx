@@ -15,6 +15,7 @@ const Home = () => {
       />
       <h1>Suculentas que alegran y sanan</h1>
       <p>Te ofrecemos la mejor selección de plantas suculentas</p>
+  
      
       <div className="react-player">
         <ReactPlayer url="https://youtu.be/oEb7imdMdHc" playing loop muted />
@@ -35,8 +36,8 @@ const Home = () => {
         </section>
         
       </section>
+      </section>
     
-    </section>
     <Footer/>
   </main>
   )
