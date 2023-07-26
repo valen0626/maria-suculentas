@@ -42,17 +42,10 @@ const Productos = () => {
             listaProductos.map((productoItem) => (
               <section key={productoItem.nombre} className="producto">
                 <img src={productoItem.imagen} alt={productoItem.nombre} />
-                <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">{productoItem.nombre}</a>
-                <h5>{productoItem.precio}</h5>
-                <input type="button" value="Comprar" onClick={() => añadirAlCarro(productoItem)} />
-              </section>
-            )
-            )
-          }
-          <section className="producto">
-            <img src="/Echeveria-colorata.jpg" alt="" />
-            <a class="link" data-bs-toggle="modal" data-bs-target="#exampleModal">Echeveria colorata</a>
-            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <a class="link" data-bs-toggle="modal" data-bs-target={`#${productoItem.nombre}`} >{productoItem.nombre}</a>
+                <h5>${productoItem.precio}</h5>
+                <input type="button" value="Comprar" onClick={() => añadirAlCarro(productoItem,1)} />
+                <div class="modal fade " id={`${productoItem.nombre}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -60,16 +53,13 @@ const Productos = () => {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <img src="/Echeveria-colorata.jpg" alt="echeveria-colorata" />
+                    <img src={productoItem.imagen} alt={productoItem.iamgen} />
                     <section>
-                      <h2>Echeveria colorata 'Hibrida'</h2>
+                      <h2>{productoItem.nombre}</h2>
                       <h4>Descripción</h4>
-                      <p>Esta planta forma parte de la Surreal Succulents Online Rare Plant Fair.
-                        Este es un híbrido único, elegido de nuestra colección para esta oportunidad única de poseer este Echeveria único.
-                      </p>
-                      <h5>$15,000</h5>
-                      <input className="cantidad" type="number" />
-                      <input type="button" value="Comprar" />
+                      <p>{productoItem.descripcion}</p>
+                      <h5>${productoItem.precio}</h5>
+                      <input type="button" value="Comprar" onClick={() => añadirAlCarro(productoItem,1)}/>
                     </section>
                   </div>
                   <div class="modal-footer">
@@ -78,9 +68,10 @@ const Productos = () => {
                 </div>
               </div>
             </div>
-            <h5>$15,000</h5>
-            <input type="button" value="Comprar" />
-          </section>
+              </section>
+            )
+            )
+          }
         </section>
       </section>
     </section>

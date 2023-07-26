@@ -5,17 +5,18 @@ import { useContext } from "react";
 
 const VistaCarro = () => {
   const {
-    total,
     carroItems,
     eliminarProducto,
+    obtenerCantidad,
   } = useContext(CarroContexto);
 
-  const [cantidad, setCantidad] = useState(1);
-  const [subtotal, setSubtotal] = useState(0)
+  const cambioCantidad = (itemNombre, nuevaCantidad) => {
+    obtenerCantidad(itemNombre, nuevaCantidad);
+  };
 
-  // const calculateSubtotal = (precio, cantidad) => {
-  //   return parseInt(precio) * parseInt(cantidad);
-  // };
+  const calcularTotal = () => {
+    return carroItems.reduce((total, item) => total + parseInt(item.precio) * item.cantidad, 0);
+  };
 
   return (
     <section>
@@ -49,22 +50,33 @@ const VistaCarro = () => {
                     <img src={item.imagen} alt="" />
                   </td>
                   <td>{item.nombre}</td>
-                  <td>{item.precio}</td>
+                  <td>${item.precio}</td>
                   <td>
                     <input
                       type="number"
                       placeholder="Cantidad"
-                      value={cantidad}
-                      onChange={(e) => setCantidad(item.nombre, e.target.value)}
+                      // onChange={(e) => setCantidad(parseInt(e.target.value))}
+                      onChange={(e) => cambioCantidad(item.nombre, parseInt(e.target.value))}
+                      value={item.cantidad}
                     ></input>
                   </td>
                   <td>
-                    {setSubtotal(cantidad*item.precio)}</td>
+                    ${item.cantidad*parseInt(item.precio)}.000</td>
                 </tr>
               ))}
             </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total: </td>
+                <td>${calcularTotal()}.000</td>
+              </tr>
+            </tfoot>
           </table>
-          <h1>${subtotal}</h1>
+          <input type="button" value="Realizar compra" />
         </section>
       </section>
     </section>
