@@ -2,6 +2,7 @@ import Header from "../helpers/Header"
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
 import Footer from "./Footer"
+import Carruselinicio from "./Carruselinicio"
 
 const Home = () => {
   return (
@@ -36,9 +37,12 @@ const Home = () => {
         </section>
         
       </section>
+      
       </section>
-    
+      <h1 className="nuestros">NUESTROS PRODUCTOS HECHOS 100% NATURALES</h1>
+      <Carruselinicio/>
     <Footer/>
+
   </main>
   )
 }
