@@ -612,4 +612,34 @@ tr img{
     text-align: justify;
     
 }
+.footer{
+    display: flex;
+    background-color: #777;
+    color:rgb(230, 198, 209);
+    justify-content: center;
+    text-decoration: none;
+    gap: 25px;
+}
+.redes {
+    display: flex;
+    font-size: 30px;
+    gap: 25px;
+    color:rgb(230, 198, 209);
+    
+  }
+  .icono{
+    color:rgb(230, 198, 209);
+  }
+  .parrter{
+    
+    position: absolute;
+    top: 300px;
+    display: inline-block;
+    box-shadow: 20px 10px 10px rgba(6, 80, 6, 0.374);
+    width: 100%;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: justify;
+    padding: 10px;
+  }
 

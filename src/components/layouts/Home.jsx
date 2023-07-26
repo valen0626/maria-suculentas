@@ -1,6 +1,8 @@
 import Header from "../helpers/Header"
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
+import Footer from "./Footer"
+
 const Home = () => {
   return (
     <main>
@@ -13,6 +15,7 @@ const Home = () => {
       />
       <h1>Suculentas que alegran y sanan</h1>
       <p>Te ofrecemos la mejor selección de plantas suculentas</p>
+     
       <div className="react-player">
         <ReactPlayer url="https://youtu.be/oEb7imdMdHc" playing loop muted />
       </div>
@@ -28,9 +31,9 @@ const Home = () => {
           estar compuestas básicamente de una gran cantidad de agua almacenada
           en sus hojas, tallos y raíces, pueden llegar a estar bastante tiempo
           sin riego. "
-
         </p>
         </section>
+        <Footer/>
       </section>
     </section>
   </main>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Carrusel from '../helpers/Carrusel'
 import Header from '../helpers/Header'
+import Footer from './Footer'
 
 
 
@@ -14,6 +15,7 @@ const Quienesomos = () => {
                 <p>La prioridad de nuestra empresa es obtener la máxima calidad. lo que se consigue con instalaciones modernas y eficaces. Con el secado por aire inducido, se puede controlar las variables del tratamiento y en el lapso de unas horas es posible obtener un producto homogéneo y de excelente calidad comercial.</p>
                 <p>Nuestros aceites esenciales los obtenemos por arrastre de vapor. Hacemos pasar una corriente de vapor de agua a través de la planta a procesar, previamente introducida en el vaso destilador de un alambique de acero inoxidable, lo que volatiliza y arrastra las moléculas aromáticas de ésta.</p>
                 <Carrusel />
+               
             </section>
 
         </section>

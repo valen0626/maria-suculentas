@@ -7,6 +7,7 @@ import Contacto from "./components/layouts/Contacto";
 import Quienesomos from "./components/layouts/Quienesomos";
 import VistaCarro from "./components/layouts/carro/VistaCarro";
 import { CarroProvider } from "./components/layouts/carro/CarroContexto";
+import Terminos from "./components/layouts/Terminos";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: '/carrocompras',
     element: <VistaCarro/>
+  },
+  {
+    path: '/terminosycondiciones',
+    element: <Terminos/>
   }
 ]);
 
