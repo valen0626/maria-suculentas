@@ -6,16 +6,16 @@ const Carrusel = () => {
     return (
         <Carousel className='carrusel'>
             <div >
-                <img src="./public/pl1.jpeg" alt="Imagenu" />
+                <img src="./public/img/pl1.jpeg" alt="Imagenu" />
             </div>
             <div>
-                <img src="./public/pl3.jpg" alt="Imagen" />
+                <img src="./public/img/pl3.jpg" alt="Imagen" />
             </div>
             <div>
-                <img src="./public/pl4.jpg" alt="Imagen" />
+                <img src="./public/img/pl4.jpg" alt="Imagen" />
             </div>
             <div>
-                <img src="./public/pl5.jpg" alt="Imagen" />
+                <img src="./public/img/pl5.jpg" alt="Imagen" />
             </div>
             
                 

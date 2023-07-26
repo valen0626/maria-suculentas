@@ -1,5 +1,5 @@
 import React from 'react'
-import Carrusel from '../helpers/Carrusel'
+import Carrusel from './Carrusel'
 import Header from '../helpers/Header'
 import Footer from './Footer'
 

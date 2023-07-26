@@ -12,7 +12,7 @@ header {
     background-size: cover;
     position: absolute;
     width: 100%;
-    height: 100px;
+    height: 215px;
     background-color: white;
     box-shadow: 0px 0px 3px black;
 }
@@ -100,11 +100,11 @@ nav input:hover {
 }
 
 .imagenHeader {
-    position:relative;
+    position: relative;
     width: 100%;
     height: 660px;
     top: 220px;
- 
+
 }
 
 .links {
@@ -188,7 +188,7 @@ nav input:hover {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    margin: 15px;
+    margin: 20px;
     box-shadow: 0px 0px 10px #d69897;
     border-radius: 5px;
 }
@@ -230,13 +230,13 @@ nav input:hover {
 .categorias {
     width: 25%;
     height: 75vh;
-    margin: 30px;
+    margin: 45px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     padding: 35px;
     font-family: serif;
-    background-color:#b97e9d57;
+    background-color: #b97e9d57;
 }
 
 .categorias h1 {
@@ -278,18 +278,20 @@ nav input:hover {
 .logo {
     position: absolute;
     left: 180px;
-    width: 150px;
+    width: 160px;
     top: 20px;
     border-radius: 100%;
 }
-.btn{
+
+.btn {
     position: absolute;
     left: 1100px;
     top: 68px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     color: rgb(4, 100, 11);
 }
+
 /*CONTACTO*/
 * {
     text-decoration: none;
@@ -297,7 +299,7 @@ nav input:hover {
 }
 
 .seccion {
-    
+
     left: 220PX;
     display: flex;
     justify-content: center;
@@ -549,11 +551,11 @@ nav input:hover {
 
 .listaCarro tbody tr {
     height: 70px;
-} 
+}
 
-tr img{
+tr img {
     width: 100px;
-    
+
 }
 
 
@@ -569,6 +571,7 @@ tr img{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: justify;
     padding: 10px;
+   
 }
 
 .parrafosh1 {
@@ -583,55 +586,66 @@ tr img{
     left: 9%;
     width: 45%;
     height: 65%;
-    background-color:#b97e9d57;
-    padding:50px;
+    background-color: #b97e9d57;
+    padding: 50px;
     justify-content: center;
-    box-shadow:10px 10px 10px rgb(66, 30, 36);
-    border-radius:2%
- 
-  
+    box-shadow: 10px 10px 10px rgb(66, 30, 36);
+    border-radius: 2%
 }
-.sucu{
+
+.sucu {
     position: absolute;
     width: 15%;
     top: 810px;
     left: 50px;
 
 }
-.sucu2{
+
+.sucu2 {
     position: absolute;
     width: 10%;
     left: 48%;
-    top:  1310px;
+    top: 1310px;
 }
-.cuidados{
+
+.cuidados {
     position: absolute;
     left: 800px;
     width: 600px;
-    top:480px;
+    top: 480px;
     text-align: justify;
-    
+
 }
-.footer{
+
+.footer {
+    position: absolute;
     display: flex;
-    background-color: #777;
-    color:rgb(230, 198, 209);
+    flex-direction: column;
+    align-items: center;
+    top: 1600px;
+    width: 100%;
+    padding: 25px;
+    background-color: rgba(8, 108, 66, 0.317);
+    color: rgb(4, 50, 15);
     justify-content: center;
     text-decoration: none;
-    gap: 25px;
+    gap: 15px;
 }
+
 .redes {
     display: flex;
-    font-size: 30px;
+    font-size: 32px;
     gap: 25px;
-    color:rgb(230, 198, 209);
-    
-  }
-  .icono{
-    color:rgb(230, 198, 209);
-  }
-  .parrter{
-    
+    color:rgb(4, 50, 15);
+
+}
+
+.icono {
+    color:rgb(4, 50, 15);
+}
+
+.parrter {
+
     position: absolute;
     top: 300px;
     display: inline-block;
@@ -641,5 +655,4 @@ tr img{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: justify;
     padding: 10px;
-  }
-
+}

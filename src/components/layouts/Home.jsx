@@ -9,7 +9,7 @@ const Home = () => {
     <Header />
     <section className="imagen">
       <img
-        src="/fondo inicio.jpg"
+        src="./public/img/fondo inicio.jpg"
         alt="imagen de suculentas"
         className="imagenHeader"
       />
@@ -20,8 +20,8 @@ const Home = () => {
         <ReactPlayer url="https://youtu.be/oEb7imdMdHc" playing loop muted />
       </div>
       <section>
-        <img src="./public/sucu.png" alt="" className="sucu" />
-        <img src="./public/sucu2.png" alt="" className="sucu2" />
+        <img src="./public/img/sucu.png" alt="" className="sucu" />
+        <img src="./public/img/sucu2.png" alt="" className="sucu2" />
         <section className="cuidados">
         <p >
           "Cuidados de las suculentas se diferencian de muchas
@@ -33,9 +33,11 @@ const Home = () => {
           sin riego. "
         </p>
         </section>
-        <Footer/>
+        
       </section>
+    
     </section>
+    <Footer/>
   </main>
   )
 }
