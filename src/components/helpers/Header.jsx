@@ -12,11 +12,8 @@ const Header = () => {
             Home
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              className="links" to={'/productos'}>
+          <li className="nav-item links">
               Productos
-            </Link>
             <ul>
               <li className="listaProd"><Link to={'/agaves'}className="linkCategoria">AGAVES</Link></li>
               <li className="listaProd"><Link to={'/aloes'}className="linkCategoria">ALOE</Link></li>

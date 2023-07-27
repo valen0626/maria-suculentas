@@ -17,7 +17,6 @@ const Quienesomos = () => {
                 <Carrusel />
                
             </section>
-
         </section>
     )
 }

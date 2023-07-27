@@ -12,17 +12,15 @@ header {
     height: 100px;
     background-size: cover;
     position: absolute;
-    background-color: transparent;
 }
 
 nav {
     width: 100%;
     height: 100px;
-    text-decoration: none;
-    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 
 nav ul {
@@ -38,11 +36,14 @@ nav .nav-item {
     height: 100px;
 }
 
-
+nav .btn{
+    width: 200px;
+    background-color:#98d9bd;
+}
 
 nav ul ul {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 100px;
     width: 200px;
     padding: 25px;
@@ -92,7 +93,6 @@ nav input:hover {
 
 .imagenHeader {
     top: 130px;
-    position: relative;
     width: 100%;
     height: 660px;
 }
@@ -225,7 +225,7 @@ nav input:hover {
     flex-direction: column;
     padding: 35px;
     font-family: serif;
-    background-color: #b97e9d57;
+    background-color: rgba(8, 108, 66, 0.317);
 }
 
 .categorias h1 {
@@ -301,15 +301,22 @@ nav input:hover {
 
 }
 
+.container_carro{
+    position: relative;
+    min-width: 1100px;
+    min-height: 600px;
+    display: flex;
+    z-index: 1000;
+}
 .container_contactos {
     position: relative;
     min-width: 1100px;
-    min-height: 550px;
+    min-height: 530px;
     display: flex;
     z-index: 1000;
 }
 
-.container_contactos .contactForm {
+.contactForm {
     position: absolute;
     padding: 70px 40px;
     margin-left: 65px;
@@ -319,13 +326,13 @@ nav input:hover {
     box-shadow: 0 50px 50px 0 rgba(7, 52, 7, 0.612);
 }
 
-.container_contactos .contactForm h2 {
+ .contactForm h2 {
     color: rgba(0, 0, 0, 0.903);
     font-size: 23px;
     font-weight: 500;
 }
 
-.container_contactos .contactForm .formularioBox {
+ .contactForm .formularioBox {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -333,21 +340,21 @@ nav input:hover {
     padding-top: 30px;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox {
+ .contactForm .formularioBox .inputBox {
     position: relative;
     margin-bottom: 35px;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox.w50 {
+ .contactForm .formularioBox .inputBox.w50 {
     width: 47%;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox.w100 {
+ .contactForm .formularioBox .inputBox.w100 {
     width: 100%;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox input,
-.container_contactos .contactForm .formularioBox .inputBox textarea {
+ .contactForm .formularioBox .inputBox input,
+ .contactForm .formularioBox .inputBox textarea {
     width: 100%;
     resize: none;
     padding: 5px 0;
@@ -359,11 +366,11 @@ nav input:hover {
     border-bottom: 1px solid #777;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox textarea {
+ .contactForm .formularioBox .inputBox textarea {
     height: 120px;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox span {
+ .contactForm .formularioBox .inputBox span {
     position: absolute;
     left: 0;
     padding: 5px 0;
@@ -373,10 +380,10 @@ nav input:hover {
     transition: 0.3s;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox input:focus~span,
-.container_contactos .contactForm .formularioBox .inputBox input:valid~span,
-.container_contactos .contactForm .formularioBox .inputBox textarea:focus~span,
-.container_contactos .contactForm .formularioBox .inputBox textarea:valid~span {
+ .contactForm .formularioBox .inputBox input:focus~span,
+ .contactForm .formularioBox .inputBox input:valid~span,
+ .contactForm .formularioBox .inputBox textarea:focus~span,
+ .contactForm .formularioBox .inputBox textarea:valid~span {
     transform: translateY(-20px);
     font-size: 12px;
     font-weight: 400;
@@ -385,7 +392,7 @@ nav input:hover {
     font-weight: 500;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox input[type="submit"] {
+ .contactForm .formularioBox .inputBox input[type="submit"] {
     position: relative;
     cursor: pointer;
     background: rgba(24, 96, 55, 0.871);
@@ -394,7 +401,7 @@ nav input:hover {
     padding: 12px;
 }
 
-.container_contactos .contactForm .formularioBox .inputBox input[type="submit"]:hover {
+ .contactForm .formularioBox .inputBox input[type="submit"]:hover {
     background: rgba(144, 176, 150, 0.795);
 }
 
@@ -406,7 +413,7 @@ nav input:hover {
 
     }
 
-    .container_contactos .contactForm {
+    .contactForm {
         position: absolute;
         padding: 70px 50px;
         padding-left: 40px;
@@ -424,7 +431,7 @@ nav input:hover {
 
     }
 
-    .container_contactos .contactForm {
+     .contactForm {
         position: absolute;
         padding: 70px 50px;
         padding-left: 40px;
@@ -433,10 +440,10 @@ nav input:hover {
 
     }
 
-    .container_contactos .contactForm .formularioBox .inputBox input:focus~span,
-    .container_contactos .contactForm .formularioBox .inputBox input:valid~span,
-    .container_contactos .contactForm .formularioBox .inputBox textarea:focus~span,
-    .container_contactos .contactForm .formularioBox .inputBox textarea:valid~span {
+     .contactForm .formularioBox .inputBox input:focus~span,
+     .contactForm .formularioBox .inputBox input:valid~span,
+     .contactForm .formularioBox .inputBox textarea:focus~span,
+     .contactForm .formularioBox .inputBox textarea:valid~span {
         transform: translateY(-25px);
         font-size: 13px;
         font-weight: 200;
@@ -445,14 +452,14 @@ nav input:hover {
         font-weight: 300;
     }
 
-    .container_contactos .contactForm .formularioBox .inputBox input,
-    .container_contactos .contactForm .formularioBox .inputBox textarea {
+     .contactForm .formularioBox .inputBox input,
+     .contactForm .formularioBox .inputBox textarea {
 
         font-size: 18px;
         font-weight: 300;
     }
 
-    .container_contactos .contactForm .formularioBox .inputBox input[type="submit"] {
+     .contactForm .formularioBox .inputBox input[type="submit"] {
         position: relative;
         cursor: pointer;
         background: rgba(0, 0, 0, 0.871);
@@ -507,18 +514,17 @@ nav input:hover {
 }
 .contenedorimg{
     width: 100%;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
 }
 .contenedorimg h1{
     position: absolute;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 250px;
+    top: 200px;
     margin-left: 20%;
 }
 .contenedorimg .imagenCarro{
     width: 100%;
-    position: relative;
 }
 .vistaCarrito {
     width: 100%;
@@ -640,18 +646,29 @@ tr img {
 }
 
 .footer {
-    position: absolute;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    top: 2580px;
+    
     width: 100%;
     padding: 25px;
     background-color: rgba(8, 108, 66, 0.317);
     color: rgb(4, 50, 15);
     justify-content: center;
     text-decoration: none;
-    gap: 15px;
+    gap: 15px; */
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+  background-color: rgba(8, 108, 66, 0.317);
+  color: rgb(4, 50, 15);
+  gap: 15px;
+  position: relative;
+  bottom: 0%;
+  left: 0;
+  top: 300vh;
 }
 
 .redes {

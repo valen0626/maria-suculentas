@@ -42,10 +42,10 @@ const ProdMarijuana = () => {
             listaProductos.map((productoItem) => (
               <section key={productoItem.nombre} className="producto">
                 <img src={productoItem.imagen} alt={productoItem.nombre} />
-                <a class="link" data-bs-toggle="modal" data-bs-target={`#${productoItem.nombre}`} >{productoItem.nombre}</a>
+                <a class="link" data-bs-toggle="modal" data-bs-target={`#${productoItem.imagen}`} >{productoItem.nombre}</a>
                 <h5>${productoItem.precio}</h5>
                 <input type="button" value="Comprar" onClick={() => añadirAlCarro(productoItem,1)} />
-                <div class="modal fade " id={`${productoItem.nombre}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade " id={`${productoItem.imagen}`}  aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">

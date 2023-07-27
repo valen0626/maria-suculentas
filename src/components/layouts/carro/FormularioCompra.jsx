@@ -7,7 +7,7 @@ const FormularioCompra = () => {
         <section className="headerProductos"></section>
          <section className="seccion">
           
-            <section className="container_contactos">
+            <section className="container_carro">
                 
                 <article className="contactForm">
 

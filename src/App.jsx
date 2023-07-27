@@ -13,6 +13,7 @@ import ProdAgaves from "./components/layouts/productos/ProdAgaves";
 import ProdAloes from "./components/layouts/productos/ProdAloes";
 import ProdCactus from "./components/layouts/productos/ProdCactus";
 import ProdMarijuana from "./components/layouts/productos/ProdMarijuana";
+import Footer from "./components/layouts/Footer";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,7 @@ function App() {
     <CarroProvider>
       <RouterProvider router={router} />
     </CarroProvider>
+    
     </>
   );
 }

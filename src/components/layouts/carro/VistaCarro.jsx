@@ -22,8 +22,7 @@ const VistaCarro = () => {
   return (
     <section>
       <Header />
-      <section className="headerCarro">
-      </section>
+      
       <section className="contenedorimg">
         <img src="./public/img/fondo inicio.jpg" alt="" className="imagenCarro"/>
         <h1>Carro de compras</h1>
