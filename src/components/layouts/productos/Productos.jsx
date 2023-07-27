@@ -29,12 +29,11 @@ const Productos = () => {
           <h1>Buscar</h1>
           <input type="search" placeholder="Buscar" name="Buscar" id="" />
           <h1>Categorias</h1>
-          <Link className="linkCategoria">AGAVES</Link>
-          <Link className="linkCategoria">ALOE</Link>
+          <Link to={"/agaves"}className="linkCategoria">AGAVES</Link>
+          <Link to={'/aloes'}className="linkCategoria">ALOE</Link>
           <Link to={'/echeveria'} className="linkCategoria">ECHEVERIA</Link>
-          <Link className="linkCategoria">CACTUS</Link>
-          <Link className="linkCategoria">OTRAS SUCULENTAS</Link>
-          <Link className="linkCategoria">ACEITES ESENCIALES</Link>
+          <Link to={'/cactus'}className="linkCategoria">CACTUS</Link>
+          <Link to={'/marijuana'}className="linkCategoria">MARIASUCULENTAS</Link>
         </section>
         
         <section className="listaProductos">
