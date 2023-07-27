@@ -10,12 +10,12 @@ header {
     margin: 0px;
     padding: 10px;
     height: 100px;
+    background-size: cover;
     position: absolute;
     background-color: transparent;
 }
 
 nav {
-    background-color: transparent;
     width: 100%;
     height: 100px;
     text-decoration: none;
@@ -500,14 +500,28 @@ nav input:hover {
 
 
 .headerCarro {
-    background-color: white;
     width: 100%;
     height: 100px;
+    background-color: white;
 }
-
+.contenedorimg{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.contenedorimg h1{
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    top: 250px;
+    margin-left: 20%;
+}
+.contenedorimg .imagenCarro{
+    width: 100%;
+    position: relative;
+}
 .vistaCarrito {
     width: 100%;
-    padding: 30px;
+    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -515,10 +529,17 @@ nav input:hover {
 }
 
 .listaCarro table {
-    width: 920px;
-
+    width: 1200px;
+    font-size: 20px;
+    border-collapse: collapse;
+}
+.listaCarro tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
 }
 
+.listaCarro tbody tr:nth-child(even) {
+    background-color: #e9e9e9;
+}
 .listaCarro thead {
     width: 100%;
     height: 40px;
@@ -527,9 +548,10 @@ nav input:hover {
 }
 
 .listaCarro thead th {
-    padding: 5px;
+    padding: 10px;
     border-right: 5px#f7f7f7;
-
+    text-align: left;
+    border-right: 1px solid #ccc;
 }
 
 .listaCarro tbody {
@@ -542,12 +564,19 @@ nav input:hover {
 }
 .listaCarro tbody td{
     padding: 15px;
+    text-align: left;
+}
+.listaCarro td i{
+    color: #0a0a0a;
+    width: 20px;
 }
 tr img {
     width: 90px;
 
 }
-
+.listaCarro .cantidad{
+    width: 70px;
+}
 
 .parrafos {
     position: absolute;
@@ -645,4 +674,18 @@ tr img {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: justify;
     padding: 10px;
+}
+
+.btnCarro {
+    height: 55px;
+    width: 200px;
+    background-color: #d69897;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    border: none;
+    margin: 15px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
 }
