@@ -18,10 +18,11 @@ const Header = () => {
               Productos
             </Link>
             <ul>
-              <li className="listaProd"><Link className="linkCategoria">AGAVES</Link></li>
-              <li className="listaProd"><Link className="linkCategoria">ALOE</Link></li>
+              <li className="listaProd"><Link to={'/agaves'}className="linkCategoria">AGAVES</Link></li>
+              <li className="listaProd"><Link to={'/aloes'}className="linkCategoria">ALOE</Link></li>
               <li className="listaProd"><Link to={'/echeveria'} className="linkCategoria">ECHEVERIA</Link></li>
-              <li className="listaProd"><Link className="linkCategoria">OTRAS SUCULENTAS</Link></li>
+              <li className="listaProd"><Link to={'/cactus'}className="linkCategoria">CACTUS</Link></li>
+              <li className="listaProd"><Link to={'/marijuana'}className="linkCategoria">MARIASUCULENTAS</Link></li>
             </ul>
           </li>
           <li className="nav-item">

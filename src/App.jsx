@@ -8,6 +8,10 @@ import Quienesomos from "./components/layouts/Quienesomos";
 import VistaCarro from "./components/layouts/carro/VistaCarro";
 import { CarroProvider } from "./components/layouts/carro/CarroContexto";
 import Terminos from "./components/layouts/Terminos";
+import ProdAgaves from "./components/layouts/productos/ProdAgaves";
+import ProdAloes from "./components/layouts/productos/ProdAloes";
+import ProdCactus from "./components/layouts/productos/ProdCactus";
+import ProdMarijuana from "./components/layouts/productos/ProdMarijuana";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +33,22 @@ const router = createBrowserRouter([
   {
     path: '/echeveria',
     element: <Productos />
+  },
+  {
+    path: '/agaves',
+    element: <ProdAgaves />
+  },
+  {
+    path: '/aloes',
+    element: <ProdAloes />
+  },
+  {
+    path: '/cactus',
+    element: <ProdCactus />
+  },
+  {
+    path: '/marijuana',
+    element: <ProdMarijuana />
   },
   {
     path: '/contacto',
