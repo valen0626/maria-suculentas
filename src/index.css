@@ -590,7 +590,7 @@ tr img {
 .parrafos {
     position: absolute;
     top: 250px;
-    left: 70px;
+    left: 200px;
     display: inline-block;
     background-color: rgba(8, 108, 66, 0.317);
     box-shadow: 20px 10px 10px rgba(6, 80, 6, 0.374);
@@ -610,35 +610,36 @@ tr img {
 .react-player {
     position: absolute;
     display: flex;
-    top: 130%;
+    top: 90%;
     left: 9%;
-    width: 45%;
-    height: 65%;
+    width: 40%;
+    height: 500px;
     background-color: #b97e9d57;
     padding: 30px;
     justify-content: center;
+    align-items:center;
     box-shadow: 10px 10px 10px rgb(66, 30, 36);
     border-radius: 2%
 }
 
 .sucu {
     position: absolute;
-    width: 15%;
-    top: 750px;
-    left: 50px;
+    width: 35%;
+    top: -120px;
+    left: -20%;
 
 }
 
 .sucu2 {
     position: absolute;
-    width: 10%;
-    left: 48%;
-    top: 1210px;
+    width: 30%;
+    left: 78%;
+    top: 410px;
 }
 
 .cuidados {
     position: absolute;
-    left: 700px;
+    left: 50%;
     width: 35%;
     top: 360px;
     text-align: justify;
@@ -646,31 +647,20 @@ tr img {
 }
 
 .footer {
-    /* display: flex;
+    position: absolute;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    
+    top: 3000px;
     width: 100%;
     padding: 25px;
     background-color: rgba(8, 108, 66, 0.317);
     color: rgb(4, 50, 15);
     justify-content: center;
     text-decoration: none;
-    gap: 15px; */
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 25px;
-  background-color: rgba(8, 108, 66, 0.317);
-  color: rgb(4, 50, 15);
-  gap: 15px;
-  position: relative;
-  bottom: 0%;
-  left: 0;
-  top: 300vh;
-}
+    gap: 15px;
 
+}
 .redes {
     display: flex;
     font-size: 32px;
@@ -711,7 +701,7 @@ tr img {
 }
 .fotos {
     position: absolute;
-    top: 1700px;
+    top: 2100px;
     display: flex;
     text-align: center;
     width: 100%;
@@ -723,12 +713,12 @@ tr img {
 
 .imagenescarrusel {
 
-    width: 40%;
+    width: 30%;
     
 }
 .nuestros{
     position: absolute;
-    top: 1600px;
-    left: 200px;
+    top: 2000px;
+    left: 500px;
     color: #0d5017;
 }

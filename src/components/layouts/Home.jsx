@@ -17,13 +17,14 @@ const Home = () => {
       <h1>Suculentas que alegran y sanan</h1>
       <p>Te ofrecemos la mejor selección de plantas suculentas</p>
   
-     
+     <section className="secciones">
       <div className="react-player">
         <ReactPlayer url="https://youtu.be/oEb7imdMdHc" playing loop muted />
-      </div>
-      <section>
         <img src="./public/img/sucu.png" alt="" className="sucu" />
         <img src="./public/img/sucu2.png" alt="" className="sucu2" />
+      </div>
+      
+        
         <section className="cuidados">
         <p >
           "Cuidados de las suculentas se diferencian de muchas
@@ -36,7 +37,9 @@ const Home = () => {
         </p>
         </section>
         
-      </section>
+        
+  </section> 
+      
       
     </section>
     <h1 className="nuestros">NUESTROS PRODUCTOS HECHOS 100% NATURALES</h1>
