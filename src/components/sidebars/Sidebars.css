@@ -1,0 +1,73 @@
+.sidebar-cliente{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    border-right: 1px solid var(--very-light-pink);
+    background-color: var(--white);
+}
+.sidebar-cliente .controles-menu{
+    display: none;
+}
+.activo .controles-menu button{
+    margin: 10px;
+    width: 35px;
+    padding: 5px;
+    background-color: var(--white);
+    color: var(--black);
+    border: none;
+    border-radius: 50%;
+    font-size: var(--lg);
+}
+.activo .controles-menu button:hover{
+    background-color: rgb(220, 220, 220);
+    color: var(--black);
+}
+.sidebar-foto,
+.sidebar-container-links{
+    border-bottom: 1px solid var(--very-light-pink);
+}
+.sidebar-foto{
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.sidebar-foto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+.sidebar-foto figcaption{
+    font-weight: bold;
+}
+.sidebar-container-links {
+    padding: 8px 0;
+}
+.sidebar-container-links .sidebar-link, .logout{
+    display: block;
+    text-decoration: none;
+    color: var(--black);
+    padding: 5px 30px;
+}
+.logout{
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+@media (max-width: 800px){
+    .sidebar-cliente{
+        display: none;
+    }
+    .activo .controles-menu{
+        display: block;
+    }
+    .activo {
+        display: flex;
+        position: absolute;
+        width: 250px;
+        top: 0;
+        height: 100vh;
+    }
+}
