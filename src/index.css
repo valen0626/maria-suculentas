@@ -1,7 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     width: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: 'Poppins';
 }
 
 header {
@@ -14,11 +19,11 @@ header {
     position: absolute;
 }
 
-nav {
+/* nav {
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: transparent;
 }
@@ -26,7 +31,7 @@ nav {
 nav ul {
     list-style-type: none;
     text-align: center;
-}
+} */
 
 nav .nav-item {
     display: inline-block;

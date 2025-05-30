@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
 
   // Cliente (puedes protegerla con un componente luego)
   {
-    path: "/cliente/perfil",
+    path: "cliente/perfil",
     element: <LayoutGeneral><Perfil /></LayoutGeneral>,
   },
 

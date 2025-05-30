@@ -30,7 +30,7 @@ function ProductosPage() {
 
   return (
       <CategoryFilters categoria={categoria.toUpperCase()}>
-        <div className="listaProductos">
+        <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
           {productos.map((producto) => (
             <ProductCard key={producto.id} producto={producto} />
           ))}

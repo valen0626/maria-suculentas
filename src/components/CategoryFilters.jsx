@@ -160,9 +160,9 @@ export default function CategoryFilters({children, categoria}) {
           </div>
         </Dialog>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pt-10 pb-6">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">{categoria.toUpperCase()}</h1>
+        <main className="mx-auto max-w-[95%] md:px-0 sm:px-6 lg:px-8">
+          <div className="flex items-baseline justify-between border-b border-gray-200 pt-8 pb-6">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">{categoria.toUpperCase()}</h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">

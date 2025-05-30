@@ -203,7 +203,7 @@ const Perfil = () => {
           <figure>
             {fotoVista === undefined && (
               <div>
-                <img src="../../../public/iconos/foto_perfil.jpg" alt="foto de perfil" />
+                <img src="/iconos/foto_perfil.jpg" alt="foto de perfil" />
                 <button type='button' onClick={cambiarImagenSubir} className='secondary-button'>Cambiar perfil</button>
               </div>
             )}

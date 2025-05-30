@@ -1,17 +1,14 @@
-import Enlaces from "./Enlaces"
-import { Link } from "react-router-dom";
+import Enlaces from "./Enlaces";
 
 const Footer = () => {
-    return (
-      <footer className="footer">
-      
-        <Enlaces/>
-        <p> Copyright 2023 © | Medellín - Colombia</p>
-        <Link to={'/terminosycondiciones'} className="link-terminos">Terminos y Condiciones</Link>
+  return (
+    <footer className="bg-gray-500 text-white px-6 py-8 flex flex-col items-center gap-4 text-sm sm:text-base">
+      <Enlaces />
+      <p className="text-center">
+        © 2025 | Medellín - Colombia
+      </p>
+    </footer>
+  );
+};
 
-         
-      </footer>
-    )
-  }
-  
-  export default Footer;
+export default Footer;

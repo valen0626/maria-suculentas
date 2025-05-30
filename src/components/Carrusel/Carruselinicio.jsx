@@ -13,15 +13,15 @@ const Carruselinicio = () => {
       organicArrows={true}
       className="w-full h-[400px]"
     >
-      <div className='flex items-center justify-center'><img src='/home-Img/Gomitas-cannabis.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='flex items-center justify-center'><img src='/home-Img/aceite-cannabis.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/publicidad-suculenta.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/shampoo-cannabis.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/pomada-cannabis.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/publicidad-aceite2.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/publicidad-crema.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/soda-cannabis.jpg' alt='aceite' className='imagenescarrusel' /></div>
-      <div className='item-carrusel'><img src='/home-Img/publicidad-aceite3.jpg' alt='aceite' className='imagenescarrusel' /></div>
+      <div><img src='/home-Img/Gomitas-cannabis.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/aceite-cannabis.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/publicidad-suculenta.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/shampoo-cannabis.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/pomada-cannabis.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/publicidad-aceite2.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/publicidad-crema.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/soda-cannabis.jpg' alt='aceite' className='w-80' /></div>
+      <div><img src='/home-Img/publicidad-aceite3.jpg' alt='aceite' className='w-80' /></div>
     </AutoplaySlider>
   )
 }
