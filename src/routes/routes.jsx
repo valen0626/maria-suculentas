@@ -8,6 +8,7 @@ import Inicio from "../pages/public/Inicio";
 import Pagina404 from "../pages/public/Pagina404";
 import Contacto from "../pages/public/Contacto";
 import ProductosPage from "../pages/public/ProductosPage";
+import ProductDetail from "../pages/public/ProductDetail"
 
 // Páginas de auth
 import Ingresar from "../pages/public/Ingresar";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
         element: <ProductosPage />,
       },
       {
+        path: "producto/:id",
+        element: <ProductDetail />,
+      },
+      {
         path: "contacto",
         element: <Contacto />,
       },
@@ -48,6 +53,15 @@ export const router = createBrowserRouter([
       {
         path: "registrar",
         element: <Registrar />,
+      },
+      // Página 404
+      {
+        path: "*",
+        element: <Navigate to="/pagina-no-encontrada" replace />,
+      },
+      {
+        path: "pagina-no-encontrada",
+        element: <Pagina404 />
       },
     ]
   },
@@ -68,13 +82,4 @@ export const router = createBrowserRouter([
   //   ),
   // },
 
-  // Página 404
-  {
-    path: "*",
-    element: <Navigate to="/pagina-no-encontrada" replace />,
-  },
-  {
-    path: "/pagina-no-encontrada",
-    element: <LayoutGeneral><Pagina404 /></LayoutGeneral>,
-  },
 ]);

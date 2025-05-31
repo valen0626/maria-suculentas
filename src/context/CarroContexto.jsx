@@ -7,23 +7,32 @@ export const CarroProvider = ({ children }) => {
   const [carroItems, setCarroItems] = useState([])
   const [favoritos, setFavoritos] = useState([])
 
-  const obtenerCantidad = (itemNombre, nuevaCantidad) => {
-    setCarroItems((itemAnterior) =>
-      itemAnterior.map((item) => (item.nombre === itemNombre ? { ...item, cantidad: nuevaCantidad } : item))
-    );
-  };
+  const agregarAlCarro = (producto, cantidad) => {
+    const existe = carroItems.find((item) => item.id === producto.id);
 
-  const agregarAlCarro = (productoItem, cantidad) => {
-    const estaEnCarro = carroItems.some(
-      (item) =>item.nombre === productoItem.nombre
-    );
-    if (!estaEnCarro) {
-      console.log(carroItems)
-      setCarroItems((itemAnterior) => [...itemAnterior, { ...productoItem, cantidad }]);
+    if (existe) {
+      setCarroItems((prev) =>
+        prev.map((item) =>
+          item.id === producto.id
+            ? { ...item, cantidad: item.cantidad + cantidad }
+            : item
+        )
+      );
+    } else {
+      setCarroItems((prev) => [...prev, { ...producto, cantidad }]);
     }
   };
 
-  const eliminarProducto = (productNombre) => {
+  const actualizarCantidad = (itemNombre, nuevaCantidad) => {
+    setCarroItems((prev) =>
+      prev.map((item) =>
+        item.nombre === itemNombre ? { ...item, cantidad: nuevaCantidad } : item
+      )
+    );
+    console.log(carroItems)
+  };
+
+  const quitarDelCarro = (productNombre) => {
     const updatedCarroItems = carroItems.filter(
       (item) => item.nombre !== productNombre
     );
@@ -51,10 +60,10 @@ export const CarroProvider = ({ children }) => {
       value={{
         carroItems,
         agregarAlCarro,
-        eliminarProducto,
-        obtenerCantidad,
+        quitarDelCarro,
         marcarFavorito,
         eliminarFavorito,
+        actualizarCantidad,
         favoritos
       }}
     >

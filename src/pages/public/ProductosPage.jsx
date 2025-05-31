@@ -1,41 +1,30 @@
-import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { db } from "../../services/firebase";
 import ProductCard from "../../components/ProductCard";
 import CategoryFilters from "../../components/CategoryFilters";
+import { obtenerProductos } from "../../services/productService"
 
 function ProductosPage() {
   const { categoria } = useParams();
   const [productos, setProductos] = useState([]);
 
-  useEffect(() => {
-    const obtenerProductos = async () => {
-      try {
-        const colRef = collection(db, "productos"); // asumiendo que todos los productos están en esta colección
-        const q = query(colRef, where("categoria", "==", categoria));
-        const snapshot = await getDocs(q);
-        const productosData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setProductos(productosData);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
-      }
-    };
+  const listaProductos = async () => {
+    const productosData = await obtenerProductos(categoria)
+    setProductos(productosData);
+  }
 
-    obtenerProductos();
+  useEffect(() => {
+    listaProductos()
   }, [categoria]);
 
   return (
-      <CategoryFilters categoria={categoria.toUpperCase()}>
-        <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
-          {productos.map((producto) => (
+    <CategoryFilters categoria={categoria.toUpperCase()}>
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
+        {productos.map((producto) => (
             <ProductCard key={producto.id} producto={producto} />
-          ))}
-        </div>
-      </CategoryFilters>
+        ))}
+      </div>
+    </CategoryFilters>
   );
 }
 
