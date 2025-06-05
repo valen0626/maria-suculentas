@@ -12,7 +12,7 @@ Aplicación de comercio electrónico desarrollada con React y Firebase.
 ## Tecnologías utilizadas
 - React
 - Firebase
-- Tailwind CSS
+- TailwindCSS
 
 ## Link producción
 https://back-maria-suculentas.web.app/
