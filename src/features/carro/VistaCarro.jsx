@@ -41,14 +41,17 @@ const VistaCarro = ({ open, setOpen }) => {
                 </DialogTitle>
                 <button
                   onClick={() => setOpen(false)}
-                  className="text-gray-400 hover:text-gray-500 p-2"
+                  className="text-gray-400 hover:text-gray-500 p-1"
                 >
-                  X
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+
                 </button>
               </div>
 
               {/* Lista de productos */}
-              <div className="flex-1 overflow-y-auto px-4 sm:px-5">
+              <div className="flex-1 overflow-y-auto px-4 py-2 sm:px-5">
                 <ul role="list" className="-my-8 divide-y divide-gray-200">
                   {carroItems.map((item) => (
                     <li key={item.id} className="flex gap-4 py-4">

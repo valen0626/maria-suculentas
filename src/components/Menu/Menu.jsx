@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react'
-// import "./Menu.css"
 import { useNavigate, Link } from 'react-router-dom'
 import { UIContext } from '../../context/UIContext'
 import { CarroContexto } from "../../context/CarroContexto";
@@ -56,7 +55,7 @@ const Menu = () => {
   const [open, setOpen] = useState(false)
 
   return (
-     <>
+    <>
       <nav className="flex items-center justify-between p-3 px-4 bg-white shadow-md sticky top-0 z-50">
         {/* Logo y Botón menú */}
         <div className="flex items-center gap-4">
@@ -103,9 +102,8 @@ const Menu = () => {
 
         {/* Menú de enlaces (visible si está abierto en móviles) */}
         <div
-          className={`${
-            botonMenu && ancho <= 1000 ? "block" : "hidden"
-          } absolute top-16 left-0 w-full bg-white shadow-md md:hidden p-4 z-40`}
+          className={`${botonMenu && ancho <= 1000 ? "block" : "hidden"
+            } absolute top-16 left-0 w-full bg-white shadow-md md:hidden p-4 z-40`}
         >
           <div className="flex flex-col gap-2">
             {exiteUsuario ? (
@@ -128,6 +126,20 @@ const Menu = () => {
 
         {/* Iconos de usuario y carrito */}
         <div className="flex items-center gap-4">
+          <div onClick={() => setOpen((prev) => !prev)} className="relative cursor-pointer">
+            <img src="/iconos/icon_shopping_cart.svg" alt="carrito" className="w-6 h-6" />
+            {carroItems?.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                {carroItems.length}
+              </span>
+            )}
+          </div>
+          <Link to={'/favoritos'}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+          </Link>
+
           {exiteUsuario ? (
             <Link
               className="flex items-center gap-2"
@@ -138,7 +150,9 @@ const Menu = () => {
               }
             >
               <span className='text-sm font-semibold'>{usuario.Nombres}</span>
-              <img src="/iconos/perfil.svg" alt="perfil" className="w-6 h-6" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
             </Link>
           ) : (
             <Link to={"/ingresar"} className="flex items-center gap-1">
@@ -146,14 +160,7 @@ const Menu = () => {
               <img src="/iconos/login.svg" alt="login" className="w-6 h-6" />
             </Link>
           )}
-          <div onClick={() => setOpen((prev) => !prev)} className="relative cursor-pointer">
-            <img src="/iconos/icon_shopping_cart.svg" alt="carrito" className="w-6 h-6" />
-            {carroItems?.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                {carroItems.length}
-              </span>
-            )}
-          </div>
+
         </div>
 
         <VistaCarro open={open} setOpen={setOpen} />

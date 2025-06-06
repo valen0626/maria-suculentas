@@ -9,6 +9,7 @@ import Pagina404 from "../pages/public/Pagina404";
 import Contacto from "../pages/public/Contacto";
 import ProductosPage from "../pages/public/ProductosPage";
 import ProductDetail from "../pages/public/ProductDetail"
+import Favoritos from "../pages/public/Favoritos";
 
 // Páginas de auth
 import Ingresar from "../pages/public/Ingresar";
@@ -34,12 +35,16 @@ export const router = createBrowserRouter([
         element: <Inicio />
       },
       {
-        path: "productos/:categoria",
+        path: "productos",
         element: <ProductosPage />,
       },
       {
         path: "producto/:id",
         element: <ProductDetail />,
+      },
+      {
+        path: "favoritos",
+        element: <Favoritos/>,
       },
       {
         path: "contacto",
