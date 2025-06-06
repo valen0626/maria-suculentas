@@ -1,5 +1,5 @@
 {
-  "name": "hoja-de-vida",
+  "name": "maria-suculentas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.2.0",
     "bootstrap": "^5.3.0",
     "firebase": "^10.1.0",
     "react": "^18.2.0",
@@ -26,10 +28,13 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^10.4.21",
     "eslint": "^8.44.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
     "vite": "^4.4.0"
   }
 }
