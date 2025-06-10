@@ -1,7 +1,9 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
+import App from "../App";
 
 // Layouts
 import LayoutGeneral from "../layout/LayoutGeneral";
+import LayoutCliente from "../layout/LayoutCliente";
 
 // Páginas públicas
 import Inicio from "../pages/public/Inicio";
@@ -10,6 +12,7 @@ import Contacto from "../pages/public/Contacto";
 import ProductosPage from "../pages/public/ProductosPage";
 import ProductDetail from "../pages/public/ProductDetail"
 import Favoritos from "../pages/public/Favoritos";
+import ConfirmarPedido from "../pages/public/ConfirmarPedido";
 
 // Páginas de auth
 import Ingresar from "../pages/public/Ingresar";
@@ -17,6 +20,7 @@ import Registrar from "../pages/public/Registrar";
 
 // Páginas cliente 
 import Perfil from "../pages/private/Perfil";
+import RutaPrivada from "./RutaPrivada";
 
 // Páginas admin
 
@@ -28,27 +32,47 @@ export const router = createBrowserRouter([
   // Ruta raíz
   {
     path: "/",
-    element: <LayoutGeneral />,
+    element: <App />,
     children: [
+      //Rutas publicas
       {
-        index: true,
-        element: <Inicio />
-      },
-      {
-        path: "productos",
-        element: <ProductosPage />,
-      },
-      {
-        path: "producto/:id",
-        element: <ProductDetail />,
-      },
-      {
-        path: "favoritos",
-        element: <Favoritos/>,
-      },
-      {
-        path: "contacto",
-        element: <Contacto />,
+        path: "/",
+        element: <LayoutGeneral />,
+        children: [
+          {
+            index: true,
+            element: <Inicio />
+          },
+          {
+            path: "productos",
+            element: <ProductosPage />,
+          },
+          {
+            path: "producto/:id",
+            element: <ProductDetail />,
+          },
+          {
+            path: "favoritos",
+            element: <Favoritos />,
+          },
+          {
+            path:"confirmarPedido",
+            element: <ConfirmarPedido/>
+          },
+          {
+            path: "contacto",
+            element: <Contacto />,
+          },
+          // Página 404
+          {
+            path: "*",
+            element: <Navigate to="/pagina-no-encontrada" replace />,
+          },
+          {
+            path: "pagina-no-encontrada",
+            element: <Pagina404 />
+          },
+        ]
       },
       // Auth
       {
@@ -59,23 +83,25 @@ export const router = createBrowserRouter([
         path: "registrar",
         element: <Registrar />,
       },
-      // Página 404
-      {
-        path: "*",
-        element: <Navigate to="/pagina-no-encontrada" replace />,
-      },
-      {
-        path: "pagina-no-encontrada",
-        element: <Pagina404 />
-      },
-    ]
-  },
 
-  // Cliente (puedes protegerla con un componente luego)
-  {
-    path: "cliente/perfil",
-    element: <LayoutGeneral><Perfil /></LayoutGeneral>,
-  },
+
+      // Cliente (puedes protegerla con un componente luego)
+      {
+        path: "cliente/",
+        element: <RutaPrivada />,
+        children: [
+          {
+            path: "",
+            element: <LayoutCliente />,
+            children: [
+              {
+                path: "perfil",
+                element: <Perfil />
+              }
+            ]
+          }
+        ]
+      },
 
   // Admin 
   // {
@@ -86,5 +112,6 @@ export const router = createBrowserRouter([
   //     </RutaProtegida>
   //   ),
   // },
+  ]}
 
 ]);

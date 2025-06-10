@@ -2,9 +2,11 @@ import { createContext, useEffect, useReducer } from "react";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../services/firebase";
 import { onSnapshot, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   usuario: {},
+  cargando: true
 };
 
 const AuthContext = createContext({
@@ -16,9 +18,11 @@ const AuthContext = createContext({
 function authReducer(state, action) {
   switch (action.type) {
     case "NUEVA_SESION":
-      return { ...state, usuario: action.payload };
+      return { usuario: action.payload, cargando: false };
     case "CERRAR_SESION":
-      return { ...state, usuario: {} };
+      return { usuario: {}, cargando: false };
+    case "TERMINAR_CARGA":
+      return { ...state, cargando: false };
     default:
       return state;
   }
@@ -26,6 +30,8 @@ function authReducer(state, action) {
 
 function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const idToken = localStorage.getItem("IdToken");
@@ -51,7 +57,9 @@ function AuthProvider({ children }) {
       });
 
       return () => unsubscribe();
-    }
+    }else {
+    dispatch({ type: "TERMINAR_CARGA" });
+  }
   }, []);
 
   function iniciarSesion(userData) {
@@ -64,15 +72,17 @@ function AuthProvider({ children }) {
 
   function cerrarSesion() {
     localStorage.clear();
-    signOut(auth).then(() =>
+    signOut(auth).then(() => {
       dispatch({ type: "CERRAR_SESION" })
-    );
+      navigate("/")
+    });
   }
 
   return (
     <AuthContext.Provider
       value={{
         usuario: state.usuario,
+        cargando: state.cargando,
         iniciarSesion,
         cerrarSesion,
       }}

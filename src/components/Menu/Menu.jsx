@@ -9,26 +9,30 @@ import { AuthContext } from '../../context/authContext';
 
 const Menu = () => {
   const navigate = useNavigate()
-  const { usuario } = useContext(AuthContext)
+  const { usuario, cerrarSesion } = useContext(AuthContext)
   const { cambiarEstadoSidebar } = useContext(UIContext)
   const { carroItems } = useContext(CarroContexto)
-  const exiteUsuario = Object.keys(usuario).length
+  const existeUsuario = Object.keys(usuario).length
 
   const [formBusqueda, setFormBusqueda] = useState("")
-  const { ancho } = CalcularPantalla()
+  const [botonMenu, setBotonMenu] = useState(false)
+  const [botonPerfil, setBotonPerfil] = useState(true)
+  const [open, setOpen] = useState(false)
+  const [tipoCategoria, setTipoCategoria] = useState({ menuCategoria: "agaves", })
   const [dataCategoria] = useState(apiCategoria)
+  const [abierto, setAbierto] = useState(false)
+
+  const { ancho } = CalcularPantalla()
 
   const cambiarDatosBusqueda = (e) => {
     setFormBusqueda(e.target.value)
   }
 
-  const [botonMenu, setBotonMenu] = useState(false)
   const cambiarBotonMenu = () => {
     setBotonMenu(!botonMenu)
     cambiarEstadoSidebar(false)
   }
 
-  const [botonPerfil, setBotonPerfil] = useState(true)
   const cambiarEstadoBotonPerfil = () => {
     setBotonPerfil(!botonPerfil)
     cambiarEstadoSidebar(true)
@@ -39,10 +43,6 @@ const Menu = () => {
     setBotonMenu(false)
   }
 
-  const [tipoCategoria, setTipoCategoria] = useState({
-    menuCategoria: "agaves",
-  })
-
   const activarCategoria = (e) => {
     setTipoCategoria({ ...tipoCategoria, menuCategoria: e.target.dataset.categoria })
   }
@@ -52,11 +52,9 @@ const Menu = () => {
     setFormBusqueda("")
   }
 
-  const [open, setOpen] = useState(false)
-
   return (
     <>
-      <nav className="flex items-center justify-between p-3 px-4 bg-white shadow-md sticky top-0 z-50">
+      <nav className="flex items-center justify-between p-2 px-5 bg-white shadow-md sticky top-0 z-50">
         {/* Logo y Botón menú */}
         <div className="flex items-center gap-4">
           {ancho <= 800 && (
@@ -70,7 +68,7 @@ const Menu = () => {
               <img
                 src={ancho <= 500 ? "/iconos/icono-maria.jpeg" : "/iconos/logo-maria.jpeg"}
                 alt="logo maria suculentas"
-                className={ancho <= 500 ? "w-10 h-10 object-cover rounded-full" : "w-36 h-auto object-contain"}
+                className={ancho <= 500 ? "w-10 h-10 object-cover rounded-full" : "w-32 h-auto object-contain"}
               />
             </Link>
           </div>
@@ -106,7 +104,7 @@ const Menu = () => {
             } absolute top-16 left-0 w-full bg-white shadow-md md:hidden p-4 z-40`}
         >
           <div className="flex flex-col gap-2">
-            {exiteUsuario ? (
+            {existeUsuario ? (
               usuario.Rol === "administrador" ? (
                 <Link to={"/administrador/reportes"}>Perfil</Link>
               ) : (
@@ -114,7 +112,7 @@ const Menu = () => {
               )
             ) : null}
             <hr />
-            {!exiteUsuario && (
+            {!existeUsuario && (
               <>
                 <Link to={"/registrar"}>Registrar</Link>
                 <Link to={"/ingresar"}>Ingresar</Link>
@@ -126,6 +124,52 @@ const Menu = () => {
 
         {/* Iconos de usuario y carrito */}
         <div className="flex items-center gap-4">
+
+          {existeUsuario ? (
+            <>
+              <div className="relative">
+                <button onClick={() => setAbierto(!abierto)} className="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                  </svg>
+                  <span className='text-sm font-semibold'>Mi cuenta</span>
+                  <i class="bi bi-chevron-down"></i>
+                </button>
+
+                {abierto && (
+                  <div className="absolute right-0 flex-column items-center mt-3 bg-white shadow-md rounded-lg p-2 w-52">
+                    <Link
+                      className="w-full px-2 py-1 mb-1 flex gap-2 text-gray-700 rounded hover:bg-green-100"
+                      to={usuario.Rol === "administrador" ? "/administrador/reportes" : "/cliente/perfil"}
+                    >
+                      <i class="bi bi-person-circle text-xl"></i>
+                      Mi cuenta
+                    </Link>
+                    <Link className="w-full px-2 py-1 mb-1 flex gap-2 text-gray-700 rounded hover:bg-green-100">
+                    <i class="bi bi-journal-text text-xl"></i>
+                      Compras
+                    </Link>
+                    <Link className="w-full px-2 py-1 mb-1 flex gap-2 text-gray-700 rounded hover:bg-green-100"
+                     to={"/favoritos"}>
+                      <i class="bi bi-bookmark-heart text-xl"></i>
+                      Mi lista
+                    </Link>
+                    <button onClick={cerrarSesion} className="w-full border-[1px] font-semibold text-green-700 border-green-700 rounded py-2 my-2 hover:text-green-800">
+                      Salir
+                    </button>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <Link to={"/ingresar"} className="flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                  </svg>
+              <span className="text-sm font-semibold">Iniciar sesión</span>
+            </Link>
+          )}
+
           <div onClick={() => setOpen((prev) => !prev)} className="relative cursor-pointer">
             <img src="/iconos/icon_shopping_cart.svg" alt="carrito" className="w-6 h-6" />
             {carroItems?.length > 0 && (
@@ -134,32 +178,6 @@ const Menu = () => {
               </span>
             )}
           </div>
-          <Link to={'/favoritos'}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-          </svg>
-          </Link>
-
-          {exiteUsuario ? (
-            <Link
-              className="flex items-center gap-2"
-              to={
-                usuario.Rol === "administrador"
-                  ? "/administrador/reportes"
-                  : "/cliente/perfil"
-              }
-            >
-              <span className='text-sm font-semibold'>{usuario.Nombres}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-              </svg>
-            </Link>
-          ) : (
-            <Link to={"/ingresar"} className="flex items-center gap-1">
-              <span className="text-sm font-semibold">Iniciar sesión</span>
-              <img src="/iconos/login.svg" alt="login" className="w-6 h-6" />
-            </Link>
-          )}
 
         </div>
 

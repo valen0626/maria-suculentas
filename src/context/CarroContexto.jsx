@@ -6,6 +6,7 @@ export const CarroContexto = createContext();
 export const CarroProvider = ({ children }) => {
   const [carroItems, setCarroItems] = useState([])
   const [favoritos, setFavoritos] = useState([])
+  const [subtotal, setSubtotal] = useState(0)
 
   const agregarAlCarro = (producto, cantidad) => {
     const existe = carroItems.find((item) => item.id === producto.id);
@@ -21,6 +22,7 @@ export const CarroProvider = ({ children }) => {
     } else {
       setCarroItems((prev) => [...prev, { ...producto, cantidad }]);
     }
+    setSubtotal(carroItems.reduce((total, item) => total + parseInt(item.precio) * item.cantidad,0))
   };
 
   const actualizarCantidad = (itemNombre, nuevaCantidad) => {
@@ -64,6 +66,7 @@ export const CarroProvider = ({ children }) => {
         marcarFavorito,
         eliminarFavorito,
         actualizarCantidad,
+        subtotal,
         favoritos
       }}
     >
