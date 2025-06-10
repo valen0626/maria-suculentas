@@ -1,4 +1,3 @@
-import './Layouts.css'
 import Menu from '../components/Menu/Menu'
 import { Outlet } from 'react-router-dom';
 

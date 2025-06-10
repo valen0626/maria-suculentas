@@ -14,6 +14,7 @@ const VistaCarro = ({ open, setOpen }) => {
     quitarDelCarro,
     actualizarCantidad,
     obtenerCantidad,
+    subtotal
   } = useContext(CarroContexto);
 
   const calcularTotal = () =>
@@ -122,7 +123,7 @@ const VistaCarro = ({ open, setOpen }) => {
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>${calcularTotal()}.000</p>
+                  <p>${subtotal}.000</p>
                 </div>
                 <p className="mt-1 text-sm text-gray-500">
                   Los gastos de envío e impuestos se calculan al finalizar la
@@ -131,8 +132,9 @@ const VistaCarro = ({ open, setOpen }) => {
 
                 <div className="mt-6">
                   <Link
-                    to="/formulariocompra"
+                    to="/confirmarPedido"
                     className="flex justify-center items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-medium rounded-md shadow"
+                    disabled
                   >
                     Pagar
                   </Link>

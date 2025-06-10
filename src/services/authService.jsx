@@ -12,7 +12,9 @@ export const registrarCliente = async (formRegistrar, userId) => {
             Rol: "cliente"
         })
     } catch (error) {
-        console.log("error al registrar usuario", error);
+        return{
+            message: "Error registrando cliente"
+        }
     }
 }
 
@@ -34,8 +36,6 @@ export const registrarClienteAuth = async (formRegistrar) => {
   } catch (error) {
     if (error.code === "auth/email-already-in-use") return "Repetido";
     if (error.code === "auth/weak-password") return "Contrasena";
-
-    console.error("Error desconocido en Firebase:", error.code, error.message);
     return "Error";
   }
 };
@@ -88,7 +88,6 @@ export const traerUnCliente = async (usuarioVerificado) => {
 
     const clienteRef = doc(db, "clientes", idUsuario)
     const docCliente = await getDoc(clienteRef)
-    console.log(clienteRef, docCliente)
     if (docCliente.exists()) {
         if (idTokenLS && idTokenLS === docCliente.data().IdToken) {
             return { IdCliente: idUsuario, ...docCliente.data() }
@@ -108,7 +107,7 @@ export const traerUnCliente = async (usuarioVerificado) => {
             }
         }
     } else {
-        console.log("No existe el documento");
+        return { message: "No existe el documento"}
     }
 }
 

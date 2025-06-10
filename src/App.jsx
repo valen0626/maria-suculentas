@@ -1,16 +1,18 @@
-import { RouterProvider } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { CarroProvider } from "./context/CarroContexto";
 import { AuthProvider } from "./context/authContext";
 import { UIProvider } from "./context/UIContext";
-import { router } from "./routes/routes";
+import { NotificacionProvider } from "./context/NotificacionContext";
 
 function App() {
   return (
     <AuthProvider>
       <UIProvider>
-        <CarroProvider>
-          <RouterProvider router={router} />
-        </CarroProvider>
+        <NotificacionProvider>
+          <CarroProvider>
+            <Outlet/>
+          </CarroProvider>
+        </NotificacionProvider>
       </UIProvider>
     </AuthProvider>
   );
