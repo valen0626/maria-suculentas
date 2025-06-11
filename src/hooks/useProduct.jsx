@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../services/productService";
+import { getProductById } from "../features/productos/productService";
 
 export function useProduct(id) {
   const [producto, setProducto] = useState({});

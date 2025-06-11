@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 
 export const CarroContexto = createContext();
@@ -6,7 +6,26 @@ export const CarroContexto = createContext();
 export const CarroProvider = ({ children }) => {
   const [carroItems, setCarroItems] = useState([])
   const [favoritos, setFavoritos] = useState([])
-  const [subtotal, setSubtotal] = useState(0)
+
+  useEffect(() => {
+    const carritoGuardado = localStorage.getItem('carrito');
+    const misFavoritos = localStorage.getItem('favoritos')
+    if (carritoGuardado) {
+      setCarroItems(JSON.parse(carritoGuardado));
+    }
+
+    if (misFavoritos) {
+      setFavoritos(JSON.parse(misFavoritos))
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(carroItems));
+  }, [carroItems]);
+
+  useEffect(()=>{
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  },[favoritos])
 
   const agregarAlCarro = (producto, cantidad) => {
     const existe = carroItems.find((item) => item.id === producto.id);
@@ -22,16 +41,14 @@ export const CarroProvider = ({ children }) => {
     } else {
       setCarroItems((prev) => [...prev, { ...producto, cantidad }]);
     }
-    setSubtotal(carroItems.reduce((total, item) => total + parseInt(item.precio) * item.cantidad,0))
   };
 
-  const actualizarCantidad = (itemNombre, nuevaCantidad) => {
+  const actualizarCantidad = (itemId, nuevaCantidad) => {
     setCarroItems((prev) =>
       prev.map((item) =>
-        item.nombre === itemNombre ? { ...item, cantidad: nuevaCantidad } : item
+        item.id === itemId ? { ...item, cantidad: nuevaCantidad } : item
       )
     );
-    console.log(carroItems)
   };
 
   const quitarDelCarro = (productNombre) => {
@@ -66,7 +83,6 @@ export const CarroProvider = ({ children }) => {
         marcarFavorito,
         eliminarFavorito,
         actualizarCantidad,
-        subtotal,
         favoritos
       }}
     >

@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "firebase/firestore"
+import { collection, doc, getDoc, query, updateDoc, where } from "firebase/firestore"
 import { db, storage } from "./firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
@@ -42,4 +42,26 @@ export const editarPerfilConFoto = (foto, idCliente) => {
         }).catch((error) => {
             console.log("Error al subir imagen", error);
         })
+}
+
+export const getDirecciones = async (idCliente) => {
+  try {
+    const docRef = doc(db, coleccion, idCliente);
+    const usuario = await getDoc(docRef);
+    
+    if (usuario.exists()) {
+      return usuario.data();
+    } else {
+      return { mensaje: "No se encontró el usuario" };
+    }
+  } catch (error) {
+    return {
+      error: "Error al obtener usuario",
+      message: error.message
+    };
+  }
+};
+
+export const insertarDireccion = () => {
+
 }

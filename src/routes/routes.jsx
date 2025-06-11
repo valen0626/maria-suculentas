@@ -9,8 +9,8 @@ import LayoutCliente from "../layout/LayoutCliente";
 import Inicio from "../pages/public/Inicio";
 import Pagina404 from "../pages/public/Pagina404";
 import Contacto from "../pages/public/Contacto";
-import ProductosPage from "../pages/public/ProductosPage";
-import ProductDetail from "../pages/public/ProductDetail"
+import ProductosPage from "../features/productos/ProductosPage";
+import ProductDetail from "../features/productos/ProductDetail"
 import Favoritos from "../pages/public/Favoritos";
 import ConfirmarPedido from "../pages/public/ConfirmarPedido";
 

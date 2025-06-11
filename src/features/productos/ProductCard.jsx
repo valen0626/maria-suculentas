@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { CarroContexto } from "../context/CarroContexto";
+import { CarroContexto } from "../../context/CarroContexto";
 import { Link } from "react-router-dom";
 
 function ProductCard({ producto }) {
@@ -27,14 +27,14 @@ function ProductCard({ producto }) {
   const aumentar = () => {
     const nuevaCantidad = cantidad + 1;
     setCantidad(nuevaCantidad);
-    if (estaEnCarro) actualizarCantidad(producto.nombre, nuevaCantidad);
+    if (estaEnCarro) actualizarCantidad(producto.id, nuevaCantidad);
   };
 
   const disminuir = () => {
     if (cantidad > 1) {
       const nuevaCantidad = cantidad - 1;
       setCantidad(nuevaCantidad);
-      if (estaEnCarro) actualizarCantidad(producto.nombre, nuevaCantidad);
+      if (estaEnCarro) actualizarCantidad(producto.id, nuevaCantidad);
     }
   };
 
@@ -42,7 +42,7 @@ function ProductCard({ producto }) {
     const nuevaCantidad = parseInt(e.target.value);
     if (!isNaN(nuevaCantidad) && nuevaCantidad >= 1) {
       setCantidad(nuevaCantidad);
-      if (estaEnCarro) actualizarCantidad(producto.nombre, nuevaCantidad);
+      if (estaEnCarro) actualizarCantidad(producto.id, nuevaCantidad);
     }
   };
 
@@ -51,7 +51,7 @@ function ProductCard({ producto }) {
   };
 
   const handleQuitar = () => {
-    quitarDelCarro(producto.nombre);
+    quitarDelCarro(producto.id);
     setCantidad(1); 
   };
 

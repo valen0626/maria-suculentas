@@ -1,5 +1,5 @@
 import { collection, getDocs, where, query, getDoc, doc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../../services/firebase";
 
 export const obtenerProductos = async (categoria) => {
       try {
