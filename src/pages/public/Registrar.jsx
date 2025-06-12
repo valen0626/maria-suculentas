@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-import "./Registrar.css";
 import { registrarClienteAuth } from "../../services/authService";
 
 const initFormRegistrar = {

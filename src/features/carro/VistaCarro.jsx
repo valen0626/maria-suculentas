@@ -7,6 +7,8 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { CarroContexto } from "../../context/CarroContexto";
+import { calcularSubtotal } from "../../utils/checkoutUtils";
+import { formatearCOP } from "../../utils/formatear";
 
 const VistaCarro = ({ open, setOpen }) => {
   const {
@@ -14,14 +16,9 @@ const VistaCarro = ({ open, setOpen }) => {
     quitarDelCarro,
     actualizarCantidad,
     obtenerCantidad,
-    subtotal
   } = useContext(CarroContexto);
 
-  const calcularTotal = () =>
-    carroItems.reduce(
-      (total, item) => total + parseInt(item.precio) * item.cantidad,
-      0
-    );
+  const subtotal = calcularSubtotal(carroItems);
 
   const cambioCantidad = (nombre, nuevaCantidad) => {
     obtenerCantidad(nombre, nuevaCantidad);
@@ -72,7 +69,7 @@ const VistaCarro = ({ open, setOpen }) => {
                           <p className="text-base font-medium text-gray-900 max-w-[60%] break-words">
                             {item.nombre}
                           </p>
-                          <p className="text-base font-medium text-gray-900">${item.precio}</p>
+                          <p className="text-base font-medium text-gray-900">{formatearCOP(item.precio)}</p>
                         </div>
 
                         {/* Controles */}
@@ -92,14 +89,14 @@ const VistaCarro = ({ open, setOpen }) => {
                               value={item.cantidad}
                               onChange={(e) => {
                                 const nueva = parseInt(e.target.value);
-                                if (nueva >= 1) actualizarCantidad(item.nombre, nueva);
+                                if (nueva >= 1) actualizarCantidad(item.id, nueva);
                               }}
                               className="w-10 text-center appearance-none no-spinner focus:outline-none"
                             />
                             <button
                               className="w-7 h-7 text-gray-800 hover:bg-gray-200"
                               onClick={() =>
-                                actualizarCantidad(item.nombre, item.cantidad + 1)
+                                actualizarCantidad(item.id, item.cantidad + 1)
                               }
                             >
                               +
@@ -123,7 +120,7 @@ const VistaCarro = ({ open, setOpen }) => {
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>${subtotal}.000</p>
+                  <p>{formatearCOP(subtotal)}</p>
                 </div>
                 <p className="mt-1 text-sm text-gray-500">
                   Los gastos de envío e impuestos se calculan al finalizar la
@@ -133,10 +130,11 @@ const VistaCarro = ({ open, setOpen }) => {
                 <div className="mt-6">
                   <Link
                     to="/confirmarPedido"
+                    onClick={() => setOpen(false)}
                     className="flex justify-center items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-medium rounded-md shadow"
                     disabled
                   >
-                    Pagar
+                    Confirmar
                   </Link>
                 </div>
 

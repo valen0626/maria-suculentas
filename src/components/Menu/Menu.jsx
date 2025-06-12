@@ -145,12 +145,14 @@ const Menu = () => {
                       <i class="bi bi-person-circle text-xl"></i>
                       Mi cuenta
                     </Link>
-                    <Link className="w-full px-2 py-1 mb-1 flex gap-2 text-gray-700 rounded hover:bg-green-100">
-                    <i class="bi bi-journal-text text-xl"></i>
+                    <Link
+                      className="w-full px-2 py-1 mb-1 flex gap-2 text-gray-700 rounded hover:bg-green-100"
+                      to={"/cliente/misPedidos"}>
+                      <i class="bi bi-journal-text text-xl"></i>
                       Compras
                     </Link>
                     <Link className="w-full px-2 py-1 mb-1 flex gap-2 text-gray-700 rounded hover:bg-green-100"
-                     to={"/favoritos"}>
+                      to={"/favoritos"}>
                       <i class="bi bi-bookmark-heart text-xl"></i>
                       Mi lista
                     </Link>
@@ -164,8 +166,8 @@ const Menu = () => {
           ) : (
             <Link to={"/ingresar"} className="flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                  </svg>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
               <span className="text-sm font-semibold">Iniciar sesión</span>
             </Link>
           )}

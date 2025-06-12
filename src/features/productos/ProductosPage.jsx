@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom"; 
 import { useContext, useEffect, useState } from "react";
-import ProductCard from "../../components/ProductCard";
+import ProductCard from "./ProductCard";
 import CategoryFilters from "../../components/CategoryFilters";
-import { obtenerProductos } from "../../services/productService";
+import { obtenerProductos } from "./productService";
 import { CarroContexto } from "../../context/CarroContexto";
 
 function ProductosPage() {
