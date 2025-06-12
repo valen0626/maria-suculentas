@@ -3,7 +3,6 @@ import App from "../App";
 
 // Layouts
 import LayoutGeneral from "../layout/LayoutGeneral";
-import LayoutCliente from "../layout/LayoutCliente";
 
 // Páginas públicas
 import Inicio from "../pages/public/Inicio";
@@ -21,6 +20,7 @@ import Registrar from "../pages/public/Registrar";
 // Páginas cliente 
 import Perfil from "../pages/private/Perfil";
 import RutaPrivada from "./RutaPrivada";
+import MisCompras from "../pages/private/MisCompras";
 
 // Páginas admin
 
@@ -56,10 +56,6 @@ export const router = createBrowserRouter([
             element: <Favoritos />,
           },
           {
-            path:"confirmarPedido",
-            element: <ConfirmarPedido/>
-          },
-          {
             path: "contacto",
             element: <Contacto />,
           },
@@ -73,6 +69,12 @@ export const router = createBrowserRouter([
             element: <Pagina404 />
           },
         ]
+      },
+
+      // Sin layout     
+      {
+        path: "confirmarPedido",
+        element: <ConfirmarPedido />
       },
       // Auth
       {
@@ -92,26 +94,31 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <LayoutCliente />,
+            element: <LayoutGeneral />,
             children: [
               {
                 path: "perfil",
                 element: <Perfil />
+              },
+              {
+                path: "misPedidos",
+                element: <MisCompras />
               }
             ]
-          }
+          },
         ]
       },
 
-  // Admin 
-  // {
-  //   path: "/admin",
-  //   element: (
-  //     <RutaProtegida>
-  //       <VistaAdmin />
-  //     </RutaProtegida>
-  //   ),
-  // },
-  ]}
+      // Admin 
+      // {
+      //   path: "/admin",
+      //   element: (
+      //     <RutaProtegida>
+      //       <VistaAdmin />
+      //     </RutaProtegida>
+      //   ),
+      // },
+    ]
+  }
 
 ]);

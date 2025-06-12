@@ -74,6 +74,10 @@ export const CarroProvider = ({ children }) => {
     setFavoritos(updatedFavoritoItems);
   }
 
+  const vaciarCarro = () => {
+    setCarroItems([])
+  }
+
   return (
     <CarroContexto.Provider
       value={{
@@ -83,7 +87,8 @@ export const CarroProvider = ({ children }) => {
         marcarFavorito,
         eliminarFavorito,
         actualizarCantidad,
-        favoritos
+        favoritos,
+        vaciarCarro
       }}
     >
       {children}

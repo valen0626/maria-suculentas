@@ -1,5 +1,6 @@
 import { calcularSubtotal, calcularDescuento, calcularEnvio, calcularTotal } from "../utils/checkoutUtils";
 import { crearPedido } from "../services/pedidosService";
+import { guardarDireccion } from "../services/UsuarioService";
 
 export const usePedido = ({ carroItems, formCheckout, usuario }) => {
 
@@ -17,7 +18,7 @@ export const usePedido = ({ carroItems, formCheckout, usuario }) => {
                 telefono: formCheckout.telefono,
             },
             direccion: {
-                principal: formCheckout.direccionPrincipal,
+                principal: formCheckout.principal,
                 complemento: formCheckout.complemento,
                 ciudad: formCheckout.ciudad,
                 departamento: formCheckout.departamento,
@@ -41,10 +42,8 @@ export const usePedido = ({ carroItems, formCheckout, usuario }) => {
     const confirmarPedido = async () => {
         const pedido = prepararPedido();
         try {
-            // Opcional: guardar la dirección en el perfil del usuario
-            // await guardarDireccion(usuario.IdCliente, pedido.direccion);
-
             const respuesta = await crearPedido(pedido);
+            await guardarDireccion(usuario.IdCliente, pedido.direccion);
             return { exito: true, pedido: respuesta };
         } catch (error) {
             console.error("Error al crear el pedido:", error);

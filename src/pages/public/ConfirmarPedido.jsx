@@ -6,9 +6,13 @@ import { calcularSubtotal, calcularDescuento, calcularEnvio, calcularTotal } fro
 import { usePedido } from "../../hooks/usePedido";
 import { useNotificacion } from "../../context/NotificacionContext";
 import { useValidarFormulario } from "../../hooks/useValidarFormulario";
+import { useNavigate } from "react-router-dom";
+import { formatearCOP } from "../../utils/formatear";
 
 const ConfirmarPedido = () => {
-    const { carroItems } = useContext(CarroContexto);
+    const navigate = useNavigate()
+
+    const { carroItems, vaciarCarro } = useContext(CarroContexto);
     const { usuario } = useContext(AuthContext);
     const { mostrarNotificacion } = useNotificacion();
 
@@ -16,7 +20,7 @@ const ConfirmarPedido = () => {
         nombre: "",
         correo: "",
         telefono: "",
-        direccionPrincipal: "",
+        principal: "",
         complemento: "",
         ciudad: "",
         departamento: "",
@@ -28,7 +32,7 @@ const ConfirmarPedido = () => {
         "nombre",
         "correo",
         "telefono",
-        "direccionPrincipal",
+        "principal",
         "ciudad",
         "departamento",
         "metodoPago",
@@ -51,8 +55,13 @@ const ConfirmarPedido = () => {
     useEffect(() => {
         const direccionesExistentes = async () => {
             const resultado = await getDirecciones(usuario.IdCliente);
-            if (resultado.direcciones) {
-                setFormulario(resultado.direcciones);
+            if (resultado.direccion) {
+                setFormulario({
+                    ...resultado.direccion,
+                    nombre: usuario.Nombres + " " + usuario.Apellidos,
+                    correo: usuario.Correo,
+                    telefono: usuario.Celular || "",
+                });
             } else {
                 setFormulario({
                     nombre: usuario.Nombres + " " + usuario.Apellidos,
@@ -75,14 +84,20 @@ const ConfirmarPedido = () => {
         const resultado = await confirmarPedido();
         if (resultado.exito) {
             mostrarNotificacion("exito", "Pedido creado con éxito");
+            vaciarCarro()
+            irAtras()
             // Vaciar carrito, redirigir, etc.
         } else {
             mostrarNotificacion("error", "Error al crear el pedido");
         }
     };
 
+    const irAtras = () => {
+        navigate(-1);
+    };
+
     return (
-        <div className="max-w-5xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto py-10 px-4 grid items-start md:grid-cols-2 gap-10">
             {/* Formulario de Checkout */}
             <div>
                 <form onSubmit={handleCheckout} className="space-y-4">
@@ -123,12 +138,12 @@ const ConfirmarPedido = () => {
                     <div className="flex flex-col gap-3">
                         <h2 className="text-xl font-semibold mb-2">Dirección de envío</h2>
                         <div>
-                            {errores.direccionPrincipal && <p className="text-red-500 text-sm">{errores.direccionPrincipal}</p>}
+                            {errores.principal && <p className="text-red-500 text-sm">{errores.principal}</p>}
                             <input
-                                name="direccionPrincipal"
+                                name="principal"
                                 placeholder="Dirección principal"
-                                className={`w-full border-[1px] p-2 rounded ${errores.direccionPrincipal ? "border-red-500" : "border-gray-300"}`}
-                                value={formulario.direccionPrincipal}
+                                className={`w-full border-[1px] p-2 rounded ${errores.principal ? "border-red-500" : "border-gray-300"}`}
+                                value={formulario.principal}
                                 onChange={handleChange}
                             />
                         </div>
@@ -139,25 +154,27 @@ const ConfirmarPedido = () => {
                             value={formulario.complemento}
                             onChange={handleChange}
                         />
-                        <div>
-                            {errores.ciudad && <p className="text-red-500 text-sm">{errores.ciudad}</p>}
-                            <input
-                                name="ciudad"
-                                placeholder="Ciudad"
-                                className={`w-full border-[1px] p-2 rounded ${errores.ciudad ? "border-red-500" : "border-gray-300"}`}
-                                value={formulario.ciudad}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div>
-                            {errores.departamento && <p className="text-red-500 text-sm">{errores.departamento}</p>}
-                            <input
-                                name="departamento"
-                                placeholder="Departamento"
-                                className={`w-full border-[1px] p-2 rounded ${errores.departamento ? "border-red-500" : "border-gray-300"}`}
-                                value={formulario.departamento}
-                                onChange={handleChange}
-                            />
+                        <div className="flex w-full gap-4">
+                            <div className="w-full">
+                                {errores.ciudad && <p className="text-red-500 text-sm">{errores.ciudad}</p>}
+                                <input
+                                    name="ciudad"
+                                    placeholder="Ciudad"
+                                    className={`w-full border-[1px] p-2 rounded ${errores.ciudad ? "border-red-500" : "border-gray-300"}`}
+                                    value={formulario.ciudad}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="w-full">
+                                {errores.departamento && <p className="text-red-500 text-sm">{errores.departamento}</p>}
+                                <input
+                                    name="departamento"
+                                    placeholder="Departamento"
+                                    className={`w-full border-[1px] p-2 rounded ${errores.departamento ? "border-red-500" : "border-gray-300"}`}
+                                    value={formulario.departamento}
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
                         <input
                             name="instrucciones"
@@ -169,7 +186,7 @@ const ConfirmarPedido = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-semibold mb-3">Método de pago</h2>
+                        <h2 className="text-xl font-semibold mb-4">Método de pago</h2>
                         {errores.metodoPago && <p className="text-red-500 text-sm">{errores.metodoPago}</p>}
                         <select
                             name="metodoPago"
@@ -192,29 +209,35 @@ const ConfirmarPedido = () => {
                     {carroItems.map((item) => (
                         <li key={item.id} className="py-2 flex justify-between">
                             <span>{item.nombre} x{item.cantidad}</span>
-                            <span>${item.precio * item.cantidad}</span>
+                            <span>{formatearCOP(item.precio * item.cantidad)}</span>
                         </li>
                     ))}
                 </ul>
-                <div className="mt-4 flex justify-between font-semibold text-lg">
+                <div className="mt-3 flex justify-between font-semibold text-lg">
                     <span>Costo de envío:</span>
                     {calcularEnvio(calcularSubtotal(carroItems) - calcularDescuento(carroItems)) === 0
                         ? "GRATIS"
-                        : `$${calcularEnvio(calcularSubtotal(carroItems) - calcularDescuento(carroItems))}`}
+                        : `${formatearCOP(calcularEnvio(calcularSubtotal(carroItems) - calcularDescuento(carroItems)))}`}
                 </div>
-                <div className="mt-4 flex justify-between font-semibold text-lg">
+                <div className="mt-3 flex justify-between font-semibold text-lg">
                     <span>Descuentos:</span>
-                    <span>${calcularDescuento(carroItems)}</span>
+                    <span>{formatearCOP(calcularDescuento(carroItems))}</span>
                 </div>
-                <div className="mt-4 flex justify-between font-semibold text-lg">
+                <div className="mt-3 flex justify-between font-semibold text-lg">
                     <span>Total a pagar:</span>
-                    <span>${calcularTotal(carroItems)}</span>
+                    <span>{formatearCOP(calcularTotal(carroItems))}</span>
                 </div>
                 <button
                     onClick={handleCheckout}
                     className="mt-6 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
                 >
                     Pagar ahora
+                </button>
+                <button
+                    onClick={irAtras}
+                    className="mt-6 w-full bg-gray-300 py-2 rounded hover:bg-gray-400 transition"
+                >
+                    Cancelar
                 </button>
             </div>
         </div>

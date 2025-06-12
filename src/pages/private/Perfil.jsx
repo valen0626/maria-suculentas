@@ -38,49 +38,52 @@ const Perfil = () => {
   }
   return (
     <>
-      <div className="bg-white shadow rounded-xl p-6">
-        <h3 className="text-lg font-semibold mb-4">Información personal</h3>
-        <form className="space-y-4" onSubmit={editarDatosPerfil}>
-          <div>
-            <label className="text-sm font-medium">Email</label>
-            <p className="text-gray-600">{formCliente.correo}</p>
-          </div>
-          <div>
-            <label className="text-sm font-medium">Nombre</label>
-            <input
-              type='text'
-              name='nombres'
-              value={formCliente.nombres}
-              onChange={cambiarDatos}
-              className="w-full mt-1 p-2 border rounded-md"
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium">Apellidos</label>
-            <input
-              type='text'
-              name='apellidos'
-              value={formCliente.apellidos}
-              onChange={cambiarDatos}
-              className="w-full mt-1 p-2 border rounded-md"
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium">Celular</label>
-            <input
-              name='celular'
-              value={formCliente.celular}
-              onChange={cambiarDatos}
-              className="w-full mt-1 p-2 border rounded-md"
-            />
-          </div>
-          <button
-            type='submit'
-            className="mt-4 px-4 py-2 bg-gray-400 font-semibold text-white rounded hover:bg-green-700"
-          >
-            Guardar cambios
-          </button>
-        </form>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">👋 Hola, {usuario.Nombres}</h2>
+        <div className="bg-gray-100 p-4 rounded-lg shadow-sm">
+          <h3 className="text-lg font-semibold mb-4">Información personal</h3>
+          <form className="space-y-4" onSubmit={editarDatosPerfil}>
+            <div>
+              <label className="text-sm font-medium">Email</label>
+              <p className="text-gray-600">{formCliente.correo}</p>
+            </div>
+            <div>
+              <label className="text-sm font-medium">Nombre</label>
+              <input
+                type='text'
+                name='nombres'
+                value={formCliente.nombres}
+                onChange={cambiarDatos}
+                className="w-full mt-1 p-2 border rounded-md"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Apellidos</label>
+              <input
+                type='text'
+                name='apellidos'
+                value={formCliente.apellidos}
+                onChange={cambiarDatos}
+                className="w-full mt-1 p-2 border rounded-md"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Celular</label>
+              <input
+                name='celular'
+                value={formCliente.celular}
+                onChange={cambiarDatos}
+                className="w-full mt-1 p-2 border rounded-md"
+              />
+            </div>
+            <button
+              type='submit'
+              className="mt-4 px-4 py-2 bg-gray-400 font-semibold text-white rounded hover:bg-green-700"
+            >
+              Guardar cambios
+            </button>
+          </form>
+        </div>
       </div>
 
       {/* <div className="bg-white shadow rounded-xl p-6">

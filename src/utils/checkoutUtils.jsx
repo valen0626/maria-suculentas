@@ -1,3 +1,4 @@
+
 export function calcularSubtotal(carrito) {
   return carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
 }
