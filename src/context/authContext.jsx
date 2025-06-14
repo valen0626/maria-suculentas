@@ -39,7 +39,7 @@ function AuthProvider({ children }) {
     const rol = localStorage.getItem("Rol");
 
     if (idToken && idCliente && rol) {
-      const ref = doc(db, rol === "administrador" ? "Personales" : "clientes", idCliente);
+      const ref = doc(db, rol === "admin" ? "Personales" : "clientes", idCliente);
 
       const unsubscribe = onSnapshot(ref, (docSnap) => {
         const data = docSnap.data();

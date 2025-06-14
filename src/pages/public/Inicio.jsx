@@ -25,7 +25,7 @@ const Inicio = () => {
         <motion.img
           src="/img/fondo inicio.jpg"
           alt="Suculentas"
-          className="flex-1 max-w-xs md:max-w-sm object-contain"
+          className="flex-1 max-w-xs md:max-w-xl object-contain"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}

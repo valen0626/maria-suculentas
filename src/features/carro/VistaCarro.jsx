@@ -47,106 +47,112 @@ const VistaCarro = ({ open, setOpen }) => {
 
                 </button>
               </div>
-
-              {/* Lista de productos */}
-              <div className="flex-1 overflow-y-auto px-4 py-2 sm:px-5">
-                <ul role="list" className="-my-8 divide-y divide-gray-200">
-                  {carroItems.map((item) => (
-                    <li key={item.id} className="flex gap-4 py-4">
-                      {/* Imagen del producto */}
-                      <div className="w-20 h-20 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <img
-                          src={item.imagen}
-                          alt={item.nombre}
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
-
-                      {/* Detalles del producto */}
-                      <div className="flex flex-col flex-1 justify-between">
-                        {/* Nombre y precio */}
-                        <div className="flex justify-between items-start">
-                          <p className="text-base font-medium text-gray-900 max-w-[60%] break-words">
-                            {item.nombre}
-                          </p>
-                          <p className="text-base font-medium text-gray-900">{formatearCOP(item.precio)}</p>
-                        </div>
-
-                        {/* Controles */}
-                        <div className="flex items-center mt-2">
-                          <div className="flex border rounded-xl overflow-hidden w-fit">
-                            <button
-                              className="w-7 h-7 text-gray-800 hover:bg-gray-200"
-                              onClick={() =>
-                                actualizarCantidad(item.id, Math.max(item.cantidad - 1, 1))
-                              }
-                            >
-                              −
-                            </button>
-                            <input
-                              type="number"
-                              min="1"
-                              value={item.cantidad}
-                              onChange={(e) => {
-                                const nueva = parseInt(e.target.value);
-                                if (nueva >= 1) actualizarCantidad(item.id, nueva);
-                              }}
-                              className="w-10 text-center appearance-none no-spinner focus:outline-none"
+              {carroItems.length === 0 ? (
+                <>
+                  <p className="text-gray-500 text-center mt-10">Aún no has agregado ningún producto.</p>
+                </>
+              ) : (
+                <>
+                  <div className="flex-1 overflow-y-auto px-4 py-2 sm:px-5">
+                    <ul role="list" className="-my-8 divide-y divide-gray-200">
+                      {carroItems.map((item) => (
+                        <li key={item.id} className="flex gap-4 py-4">
+                          {/* Imagen del producto */}
+                          <div className="w-20 h-20 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img
+                              src={item.imagen}
+                              alt={item.nombre}
+                              className="object-cover w-full h-full"
                             />
-                            <button
-                              className="w-7 h-7 text-gray-800 hover:bg-gray-200"
-                              onClick={() =>
-                                actualizarCantidad(item.id, item.cantidad + 1)
-                              }
-                            >
-                              +
-                            </button>
                           </div>
 
-                          <button
-                            onClick={() => quitarDelCarro(item.nombre)}
-                            className="ml-4 text-green-600 text-sm hover:text-green-700"
-                          >
-                            Eliminar
-                          </button>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                          {/* Detalles del producto */}
+                          <div className="flex flex-col flex-1 justify-between">
+                            {/* Nombre y precio */}
+                            <div className="flex justify-between items-start">
+                              <p className="text-base font-medium text-gray-900 max-w-[60%] break-words">
+                                {item.nombre}
+                              </p>
+                              <p className="text-base font-medium text-gray-900">{formatearCOP(item.precio)}</p>
+                            </div>
 
-              {/* Footer */}
-              <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                <div className="flex justify-between text-base font-medium text-gray-900">
-                  <p>Subtotal</p>
-                  <p>{formatearCOP(subtotal)}</p>
-                </div>
-                <p className="mt-1 text-sm text-gray-500">
-                  Los gastos de envío e impuestos se calculan al finalizar la
-                  compra.
-                </p>
+                            {/* Controles */}
+                            <div className="flex items-center mt-2">
+                              <div className="flex border rounded-xl overflow-hidden w-fit">
+                                <button
+                                  className="w-7 h-7 text-gray-800 hover:bg-gray-200"
+                                  onClick={() =>
+                                    actualizarCantidad(item.id, Math.max(item.cantidad - 1, 1))
+                                  }
+                                >
+                                  −
+                                </button>
+                                <input
+                                  type="number"
+                                  min="1"
+                                  value={item.cantidad}
+                                  onChange={(e) => {
+                                    const nueva = parseInt(e.target.value);
+                                    if (nueva >= 1) actualizarCantidad(item.id, nueva);
+                                  }}
+                                  className="w-10 text-center appearance-none no-spinner focus:outline-none"
+                                />
+                                <button
+                                  className="w-7 h-7 text-gray-800 hover:bg-gray-200"
+                                  onClick={() =>
+                                    actualizarCantidad(item.id, item.cantidad + 1)
+                                  }
+                                >
+                                  +
+                                </button>
+                              </div>
 
-                <div className="mt-6">
-                  <Link
-                    to="/confirmarPedido"
-                    onClick={() => setOpen(false)}
-                    className="flex justify-center items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-medium rounded-md shadow"
-                    disabled
-                  >
-                    Confirmar
-                  </Link>
-                </div>
+                              <button
+                                onClick={() => quitarDelCarro(item.nombre)}
+                                className="ml-4 text-green-600 text-sm hover:text-green-700"
+                              >
+                                Eliminar
+                              </button>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <div className="mt-6 text-center text-sm text-gray-500">
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="text-green-600 hover:text-green-700 font-medium"
-                  >
-                    Continuar comprando<span> →</span>
-                  </button>
-                </div>
-              </div>
+                  <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                    <div className="flex justify-between text-base font-medium text-gray-900">
+                      <p>Subtotal</p>
+                      <p>{formatearCOP(subtotal)}</p>
+                    </div>
+                    <p className="mt-1 text-sm text-gray-500">
+                      Los gastos de envío e impuestos se calculan al finalizar la
+                      compra.
+                    </p>
+
+                    <div className="mt-6">
+                      <Link
+                        to="/confirmarPedido"
+                        onClick={() => setOpen(false)}
+                        className="flex justify-center items-center px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-medium rounded-md shadow"
+                        disabled
+                      >
+                        Confirmar
+                      </Link>
+                    </div>
+
+                    <div className="mt-6 text-center text-sm text-gray-500">
+                      <button
+                        onClick={() => setOpen(false)}
+                        className="text-green-600 hover:text-green-700 font-medium"
+                      >
+                        Continuar comprando<span> →</span>
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+
             </DialogPanel>
           </div>
         </div>

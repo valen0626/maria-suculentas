@@ -25,7 +25,11 @@ const Ingresar = () => {
       (async () => {
         const usuarioDb = await traerUnCliente(usuarioVerificado)
         iniciarSesion(usuarioDb)
-        navigate("/")
+        if (usuarioDb.Rol === "admin") {
+          navigate("/admin")
+        }else{
+          navigate("/")
+        }
       })()
     }
   }, [usuarioVerificado, iniciarSesion, navigate])

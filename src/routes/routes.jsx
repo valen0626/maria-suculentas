@@ -3,6 +3,7 @@ import App from "../App";
 
 // Layouts
 import LayoutGeneral from "../layout/LayoutGeneral";
+import LayoutAdmin from "../layout/LayoutAdmin";
 
 // Páginas públicas
 import Inicio from "../pages/public/Inicio";
@@ -19,13 +20,18 @@ import Registrar from "../pages/public/Registrar";
 
 // Páginas cliente 
 import Perfil from "../pages/private/Perfil";
-import RutaPrivada from "./RutaPrivada";
 import MisCompras from "../pages/private/MisCompras";
 
 // Páginas admin
-
+import Dashboard from "../pages/admin/Dashboard";
 
 // Protección de rutas 
+import RutaAdmin from "./RutaAdmin";
+import RutaPrivada from "./RutaPrivada";
+import ProductosAdmin from "../pages/admin/ProductosAdmin";
+import PedidosAdmin from "../pages/admin/PedidosAdmin";
+import UsuariosAdmin from "../pages/admin/UsuariosAdmin";
+import InventarioAdmin from "../pages/admin/InventarioAdmin";
 
 
 export const router = createBrowserRouter([
@@ -59,18 +65,17 @@ export const router = createBrowserRouter([
             path: "contacto",
             element: <Contacto />,
           },
-          // Página 404
-          {
-            path: "*",
-            element: <Navigate to="/pagina-no-encontrada" replace />,
-          },
-          {
-            path: "pagina-no-encontrada",
-            element: <Pagina404 />
-          },
         ]
       },
-
+      // Página 404
+      {
+        path: "*",
+        element: <Navigate to="/pagina-no-encontrada" replace />,
+      },
+      {
+        path: "pagina-no-encontrada",
+        element: <Pagina404 />
+      },
       // Sin layout     
       {
         path: "confirmarPedido",
@@ -109,15 +114,39 @@ export const router = createBrowserRouter([
         ]
       },
 
-      // Admin 
-      // {
-      //   path: "/admin",
-      //   element: (
-      //     <RutaProtegida>
-      //       <VistaAdmin />
-      //     </RutaProtegida>
-      //   ),
-      // },
+      //Admin 
+      {
+        path: "admin/",
+        element: <RutaAdmin/>,
+        children: [
+          {
+            path: "",
+            element: <LayoutAdmin/>,
+            children:[
+              {
+                index: true,
+                element: <Dashboard/>
+              },
+              {
+                path: "productos",
+                element: <ProductosAdmin/>
+              },
+              {
+                path: "pedidos",
+                element: <PedidosAdmin/>
+              },
+              {
+                path: "usuarios",
+                element: <UsuariosAdmin/>
+              },
+              {
+                path: "inventario",
+                element: <InventarioAdmin/>
+              },
+            ]
+          }
+        ]
+      },
     ]
   }
 

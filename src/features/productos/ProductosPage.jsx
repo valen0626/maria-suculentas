@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import CategoryFilters from "../../components/CategoryFilters";
-import { obtenerProductos } from "./productService";
+import { obtenerProductos } from "../../services/productService";
 import { CarroContexto } from "../../context/CarroContexto";
 
 function ProductosPage() {
@@ -75,7 +75,7 @@ function ProductosPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen md:mx-12">
+    <div className="flex w-full flex-col md:flex-row min-h-screen">
       <CategoryFilters
         categoriasSeleccionadas={categoriasParam}
         onFilterChange={handleFilterChange}
@@ -87,7 +87,7 @@ function ProductosPage() {
         {filtrados.length === 0 ? (
           <p className="text-gray-500 text-center mt-10">No se encontraron productos.</p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 items-center">
             {filtrados.map((producto) => (
               <ProductCard key={producto.id} producto={producto} />
             ))}

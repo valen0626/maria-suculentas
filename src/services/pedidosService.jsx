@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, query, Timestamp, where } from "firebase/firestore"
+import { addDoc, collection, getCountFromServer, getDocs, query, Timestamp, where } from "firebase/firestore"
 import { db } from "./firebase"
 
 const coleccionPedidos = "pedidos"
@@ -35,4 +35,18 @@ export const pedidosCliente = async (idUsuario) => {
             message: "Error trayendo pedidos"
         }
     }
+}
+
+export const getTotalPedidosCount = async () => {
+  try {
+    const colRef = collection(db, coleccionPedidos)
+    const snapshot = await getCountFromServer(colRef)
+    const count = snapshot.data().count
+    return count
+  } catch (error) {
+    return {
+      error: "Error al obtener la cantidad de pedidos",
+      message: error.message
+    }
+  }
 }

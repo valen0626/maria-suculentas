@@ -115,7 +115,7 @@ export default function CategoryFilters({
       </div>
 
       {/* Panel lateral en desktop */}
-      <aside className="hidden md:block w-72 border-r border-gray-200 p-7">
+      <aside className="hidden md:block w-60 border-r border-gray-200 p-7">
         {FiltroContenido()}
       </aside>
 

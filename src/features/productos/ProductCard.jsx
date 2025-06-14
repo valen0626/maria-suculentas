@@ -56,7 +56,7 @@ function ProductCard({ producto }) {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+    <div className="bg-white border h-full border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-300 flex flex-col">
       <Link to={`/producto/${producto.id}`} className="block">
         <img
           src={producto.imagen}
