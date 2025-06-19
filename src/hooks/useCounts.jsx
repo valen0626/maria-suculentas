@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTotalPedidosCount } from "../services/pedidosService";
+import { getIngresosHoy, getPedidosDelDiaCount, getTotalPedidosCount } from "../services/pedidosService";
 import { getTotalProductos } from "../services/productService";
 
 export function useCounts() {
@@ -13,15 +13,16 @@ export function useCounts() {
     useEffect(() => {
         async function fetchStats() {
             const productosCount = await getTotalProductos()
-            const pedidosCount = await getTotalPedidosCount();
+            const pedidosCount = await getTotalPedidosCount(); 
+            const ventasHoy = await getPedidosDelDiaCount();
+            const ingresosHoy = await getIngresosHoy()
 
             setStats({
                 productos: productosCount,
                 pedidos: pedidosCount,
-                ventasHoy: 0,
-                ingresosHoy: 0,
+                ventasHoy: ventasHoy,
+                ingresosHoy: ingresosHoy,
             });
-            console.log(stats)
         }
 
         fetchStats();

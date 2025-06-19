@@ -1,5 +1,5 @@
-import { useSearchParams } from "react-router-dom"; 
-import { useContext, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useContext, useEffect, useMemo, useState } from "react";
 import ProductCard from "./ProductCard";
 import CategoryFilters from "../../components/CategoryFilters";
 import { obtenerProductos } from "../../services/productService";
@@ -8,31 +8,47 @@ import { CarroContexto } from "../../context/CarroContexto";
 function ProductosPage() {
   const [productos, setProductos] = useState([]);
   const [filtrados, setFiltrados] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
 
+  const [searchParams, setSearchParams] = useSearchParams();
   const { favoritos } = useContext(CarroContexto);
 
-  const categoriasParam = searchParams.getAll("categoria");
+  const categoriasParam = useMemo(() => searchParams.getAll("categoria"), [searchParams]);
   const ordenParam = searchParams.get("orden") || "";
   const favoritosParam = searchParams.get("favoritos") === "true";
 
   useEffect(() => {
-    async function cargarProductos() {
-      if (categoriasParam.length === 0) {
-        setProductos([]);
-        return;
-      }
-
-      const resultadosPorCategoria = await Promise.all(
-        categoriasParam.map((cat) => obtenerProductos(cat))
-      );
-
-      const allProductos = resultadosPorCategoria.flat();
-
-      const uniqueProductosMap = new Map();
-      allProductos.forEach((p) => uniqueProductosMap.set(p.id, p));
-      setProductos(Array.from(uniqueProductosMap.values()));
+    if (!categoriasParam || categoriasParam.length === 0) {
+      setProductos([]);
+      return;
     }
+
+    const cargarProductos = async () => {
+      try {
+        setLoading(true);
+
+        const resultadosPorCategoria = await Promise.all(
+          categoriasParam.map((cat) => obtenerProductos(cat))
+        );
+
+        const allProductos = resultadosPorCategoria.flat();
+
+        const productosConStock = allProductos.map((p) => ({
+          ...p,
+          stock: p.stock != null ? Number(p.stock) : 0
+        }));
+
+        const productosUnicos = Array.from(
+          new Map(productosConStock.map((p) => [p.id, p])).values()
+        );
+
+        setProductos(productosUnicos);
+      } catch {
+        setProductos([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     cargarProductos();
   }, [categoriasParam]);
@@ -84,7 +100,9 @@ function ProductosPage() {
       />
 
       <main className="flex-1 p-8">
-        {filtrados.length === 0 ? (
+        {loading ? (
+          <p className="text-gray-500 text-center mt-10">Cargando productos...</p>
+        ) : filtrados.length === 0 ? (
           <p className="text-gray-500 text-center mt-10">No se encontraron productos.</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 items-center">

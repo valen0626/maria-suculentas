@@ -1,4 +1,4 @@
-import { collection, getDocs, where, query, getDoc, doc, getCountFromServer, orderBy, startAfter, limit } from "firebase/firestore";
+import { collection, getDocs, where, query, getDoc, doc, getCountFromServer, orderBy, startAfter, limit, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
 const coleccionProductos = "productos"
@@ -105,3 +105,35 @@ export const getNextPageProducts = async (lastVisible) => {
   }
 
 };
+
+export const updateStock = async (productos) => {
+  try {
+    for (const producto of productos) {
+      const prodRef = doc(db, coleccionProductos, producto.id)
+      const docSnap = await getDoc(prodRef)
+      if (!docSnap.exists()) {
+        console.warn(`⚠️ Producto con ID ${producto.id} no existe`);
+        continue;
+      }
+
+      const data = docSnap.data();
+      const stockActual = data.stock ?? 0;
+      const nuevoStock = Math.max(0,Number(stockActual) - producto.cantidad)
+
+      await updateDoc(docRef, {
+        stock: nuevoStock,
+      });
+
+      return {
+        status: true,
+        message: "El stock se actualizo"
+      }
+    }
+  } catch (error) {
+    return {
+      status: false,
+      error: "Error al actualizar stock",
+      message: error.message
+    }
+  }
+}
